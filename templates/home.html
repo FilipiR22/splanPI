@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css')}}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/Header-splan.svg') }}" type="image/svg">
+    <title>Splan</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+    <header class="p-4" data-aos="fade-down">
+        <div class="container d-flex justify-content-between align-items-center">
+            <figure>
+                <img src="{{ url_for('static', filename='img/Header-splan.svg') }}" alt="logo projet Splan">
+            </figure>
+            <ul class="nav-mid">
+                <nav class="d-flex gap-5">
+                    <li><a href="#funcionamento">Funcionamento</a></li>
+                    <li><a href="#faremos">O que vamos fazer</a></li>
+                    <li><a href="#esperamos">O que esperamos</a></li>
+                </nav>
+            </ul>
+            <ul>
+                <nav class="d-flex gap-4 acesso">
+                    <li>
+                        <a href="{{url_for('usuario.login_usuario')}}"
+                            class="border-secondary p-3 border fw-bold fs-6">Login</a>
+                    </li>
+                    <li>
+                        <a href="{{url_for('usuario.criar_usuario')}}"
+                            class="text-white p-3 fw-bold fs-6">Signup</a>
+                    </li>
+                </nav>
+            </ul>
+        </div>
+    </header>
+    <main>
+        <section class="splan-hero" data-aos="fade-up">
+            <div class="container">
+                <div class="row justify-content-between align-items-center">
+                    <div class="content-splan-hero col-5 d-flex flex-column gap-5" data-aos="fade-right" data-aos-delay="1000">
+                        <h1>Splan - Study Planning</h1>
+                        <div class="splan-hero-box-buttons acesso">
+                            <ul class="d-flex gap-3 ps-0">
+                                <li>
+                                    <a href="{{url_for('usuario.login_usuario')}}"
+                                        class="border-secondary p-3 px-5 border fw-bold text-body fs-4">Login</a>
+                                </li>
+                                
+                                <li>
+                                    <a href="{{url_for('usuario.criar_usuario')}}"
+                                        class="text-white p-3 px-5 fw-bold fs-4">Signup</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <figure class="col-5" data-aos="fade-left" data-aos-delay="1000">
+                        <img src="{{ url_for('static', filename='img/hero-img.svg') }}" alt="">
+                    </figure>
+                </div>
+            </div>
+        </section>
+        <section class="splan-operation" id="funcionamento" data-aos="flip-left" data-aos-delay="500">
+            <div class="container">
+                <div class="content-splan-hero text-center">
+                    <h2 class="mb-5 fs-1 position-relative">Funcionamento</h2>
+                    <p class="fs-4">Por meio do formulário que coletará dados de que matérias o usuário quer estudar,
+                        que possui maior domínio e da quantidade de horas disponíveis que ele tem para estudar,
+                        montaremos um plano de estudos dando pesos proporcionais às matérias de maior e menor prioridade
+                        e dividiremos o tempo disponível para estudo de acordo com esses pesos.</p>
+                </div>
+                <div class="box-function d-flex justify-content-between">
+                    <div data-aos="flip-left" data-aos-delay="400" class="function d-flex flex-column align-items-center">
+                        <figure>
+                            <img src="{{ url_for('static', filename='img/img1-funcionamento.png') }}"
+                                alt="funcionalidade 1">
+                        </figure>
+                        <figcaption class="fs-4 fw-bold">
+                            Formulário Levantativo
+                        </figcaption>
+                    </div>
+                    <div data-aos="flip-left" data-aos-delay="400" class="function d-flex flex-column align-items-center">
+                        <figure>
+                            <img src="{{ url_for('static', filename='img/img2-funcionamento.png') }}"
+                                alt="funcionalidade 2">
+                        </figure>
+                        <figcaption class="fs-4 fw-bold">
+                            Matérias Organizadas
+                        </figcaption>
+                    </div>
+                    <div data-aos="flip-left" data-aos-delay="400" class="function d-flex flex-column align-items-center">
+                        <figure>
+                            <img src="{{ url_for('static', filename='img/img3-funcionamento.png') }}"
+                                alt="funcionalidade 3">
+                        </figure>
+                        <figcaption class="fs-4 fw-bold">
+                            Cronograma
+                        </figcaption>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="splan-we-go" id="faremos">
+            <div class="container">
+                <div class="row justify-content-between align-items-center">
+                    <figure class="col-6 position-relative" data-aos="fade-up" data-aos-delay="600">
+                        <img src="{{ url_for('static', filename='img/img-we-go.png') }}" alt="imagem de menina estudando">
+                        <img src="{{ url_for('static', filename='img/bg-faremos.png') }}" alt="imagem de menina estudando" class="position-absolute">
+                    </figure>
+                    <article class="content-splan-we-go col-5 text-white" data-aos="fade-up" data-aos-delay="600">
+                        <h2 class="fs-1">O que vamos fazer</h2>
+                        <p class="fs-5">O nosso projeto busca solucionar o problema que grande parte dos estudantes enfrentam devido a falta de organização/planejamento de estudos. A ideia do projeto foi pensada por conta dessa experiência que pessoas próximas e até nós idealizadores temos em relação ao planejamentos dos estudos. 
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section class="splan-our-project" id="esperamos">
+            <h2 class="fs-1 text-center mb-5 pb-5" data-aos="flip-up" data-aos-duration='800'>O que esperamos com o nosso projeto</h2>
+            <div class="bg-splan-our-project rounded">
+                <p class="text-center py-4 container text-white fs-5 fw-medium" data-aos="flip-up" data-aos-duration='800'>Vamos criar um formulário para coletar informações dos usuários, incluindo suas horas disponíveis para estudo, as matérias que desejam estudar e aquelas nas quais querem focar mais. Com base nesses dados, atribuiremos pesos às matérias conforme sua importância e elaboraremos um cronograma prioritário. Calcularemos o tempo necessário para estudar cada matéria e planejaremos o cronograma de acordo com essas horas, ajustando-o conforme o progresso do usuário. Além disso, desenvolveremos um menu onde, ao clicar em uma matéria, o usuário poderá acessar uma aba com todos os tópicos relacionados a ela.</p>
+            </div>
+
+            <div class="box-imgs d-flex justify-content-between container mt-5 pt-5">
+                <img class="mt-5" src="{{ url_for('static', filename='img/detalhe1.png') }}" alt="" data-aos="fade-up-right" data-aos-delay="500">
+                <img class="mt-5" src="{{ url_for('static', filename='img/detalhe2.svg') }}" alt="" data-aos="fade-up-right" data-aos-delay="300">
+            </div>
+        </section>
+        <footer data-aos="zoom-in" data-aos-duration="400">
+            <div class="container d-flex justify-content-between py-5 align-items-center">
+                <p class="text-white fs-5 pb-0">Com este projeto, buscamos oferecer uma ferramenta que auxilie os estudantes a organizar seus estudos de maneira eficiente.</p>
+                <ul class="devs text-white py-4 my-5 d-flex flex-column gap-4">
+                    <li class="fw-bold">Desenvolvedores</li>
+                    <li>Glauco Vasconcelos</li>
+                    <li>Danilo Gois</li>
+                    <li>Filipi Rafael</li>
+                </ul>
+            </div>
+        </footer>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once:true
+        });
+    </script>
+</body>
+
+</html>
