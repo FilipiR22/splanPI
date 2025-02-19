@@ -1,0 +1,47 @@
+{% extends "base_adm.html" %}
+
+{% block conteudo %}
+    <div class="container_gerenciar_usuario flex-grow-1 d-flex flex-column">
+    <h1>Gerenciamento de alunos</h1>
+    <div class="box-user-aluno d-flex flex-column gap-3 mt-5 m-auto w-100">
+        {% for user in usuarios %}
+        <div class="show-user d-flex gap-4 align-items-center w-100">
+            <div class="user-aluno d-flex p-3 rounded gap-3 w-100">
+                <img src="{{ url_for('static', filename='img/icon_user.svg') }}" alt="">
+                <div class="info">
+                    <p class="mb-0 fw-medium">{{ user.nomeuser }}</p>
+                    <p class="email_user mb-0 opacity-75">{{ user.email }}</p>
+                </div>
+            </div>
+            <div class="button-delete d-flex justify-content-center align-items-center p-4 rounded gap-3">
+                <img src="{{ url_for('static', filename='img/icon_delete.svg') }}" alt="">
+            </div>
+        </div>
+        {% endfor %}        
+        <!-- <div class="show-user d-flex gap-4 align-items-center w-100">
+            <div class="user-aluno d-flex p-3 rounded gap-3 w-100">
+                <img src="{{ url_for('static', filename='img/icon_user.svg') }}" alt="">
+                <div class="info">
+                    <p class="mb-0 fw-medium">Nome do Usuário</p>
+                    <p class="email_user mb-0 opacity-75">Email do Usuário</p>
+                </div>
+            </div>
+            <div class="button-delete d-flex justify-content-center align-items-center p-4 rounded gap-3">
+                <img src="{{ url_for('static', filename='img/icon_delete.svg') }}" alt="">
+            </div>
+        </div>
+        <div class="show-user d-flex gap-4 align-items-center w-100">
+            <div class="user-aluno d-flex p-3 rounded gap-3 w-100">
+                <img src="{{ url_for('static', filename='img/icon_user.svg') }}" alt="">
+                <div class="info">
+                    <p class="mb-0 fw-medium">Nome do Usuário</p>
+                    <p class="email_user mb-0 opacity-75">Email do Usuário</p>
+                </div>
+            </div>
+            <div class="button-delete d-flex justify-content-center align-items-center p-4 rounded gap-3">
+                <img src="{{ url_for('static', filename='img/icon_delete.svg') }}" alt="">
+            </div>
+        </div> -->
+    </div>
+    </div>
+{% endblock %}
