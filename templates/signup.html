@@ -4,7 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+=======
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+>>>>>>> dev
     <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css')}}">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -24,7 +30,11 @@
         {% for tipo, msg in mensagens %}
         <div class="alert alert-{{tipo}}" role="alert">{{msg}}</div>
         {% endfor %}
+<<<<<<< HEAD
         {% endif %} 
+=======
+        {% endif %}
+>>>>>>> dev
 
         <form action="{{url_for('usuario.criar_usuario')}}" method="post" class="form-sign-up ms-5">
             <div class="content-singup d-flex flex-column gap-3">
@@ -34,15 +44,26 @@
                     <input class="form-control bg-transparent border-0" name='nome' type="text" placeholder="Nome"
                         aria-label="default input" required>
                 </div>
+<<<<<<< HEAD
                 <div class="div_input p-3 py-2 d-flex gap-3 align-items-center"> 
+=======
+                <div class="div_input p-3 py-2 d-flex gap-3 align-items-center">
+>>>>>>> dev
                     <i class="fa-solid fa-envelope"></i>
                     <input class="form-control bg-transparent border-0" name='email' type="text" placeholder="Email"
                         aria-label="default input" required>
                 </div>
+<<<<<<< HEAD
                 <div class="div_input p-3 d-flex gap-4 align-items-center"> 
                     <i class="fa-solid fa-envelope"></i>
                     <input class="form-control bg-transparent border-0" name='telefone' type="text" placeholder="Telefone"
                         aria-label="default input" required>
+=======
+                <div class="div_input p-3 py-2 d-flex gap-3 align-items-center">
+                    <i class="fa-solid fa-phone"></i>
+                    <input class="form-control bg-transparent border-0" name='telefone' type="text"
+                        placeholder="Telefone" aria-label="default input" required>
+>>>>>>> dev
                 </div>
                 <div class="div_input p-3 py-2 d-flex gap-3 align-items-center">
                     <i class="fa-solid fa-lock"></i>
@@ -55,6 +76,7 @@
                         placeholder="Confirm Password" aria-label="default input" required>
                 </div>
                 <div>
+<<<<<<< HEAD
                     <select class="form-select form-select-criar-user bg-body-tertiary" aria-label="Default select example" name="tipo_user">
                         <option selected disabled>Selecione um cargo</option>
                         <option value="comum">Usuário padrão</option>
@@ -62,6 +84,18 @@
                     </select>
                 </div>
                 <button type="submit" class="p-3 rounded-5 fw-semibold btn_cadastro border-1 m-auto mt-3 border-none w-100">Fazer cadastro</button>
+=======
+                    <select class="form-select form-select-criar-user bg-body-tertiary"
+                        aria-label="Default select example" name="tipo_user">
+                        <option selected disabled>Selecione um cargo</option>
+                        <option value="adm">Administrador</option>
+                        <option value="comum">Usuário padrão</option>
+                    </select>
+                </div>
+                <button type="submit"
+                    class="p-3 rounded-5 fw-semibold btn_cadastro border-1 m-auto mt-3 border-none w-100">Fazer
+                    cadastro</button>
+>>>>>>> dev
             </div>
         </form>
     </div>
@@ -70,6 +104,7 @@
         crossorigin="anonymous"></script>
 </body>
 <script>
+<<<<<<< HEAD
     setTimeout(function() {
       document.querySelectorAll('.alert').forEach(function(alert) {
         alert.style.transition = "opacity 0.5s";
@@ -78,4 +113,15 @@
       });
     }, 3000);
   </script>
+=======
+    setTimeout(function () {
+        document.querySelectorAll('.alert').forEach(function (alert) {
+            alert.style.transition = "opacity 0.5s";
+            alert.style.opacity = "0";
+            setTimeout(() => alert.remove(), 500);
+        });
+    }, 3000);
+</script>
+
+>>>>>>> dev
 </html>

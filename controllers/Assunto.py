@@ -4,6 +4,7 @@ from utils import db
 
 assunto_bp = Blueprint('assunto', __name__, template_folder='templates')
 
+<<<<<<< HEAD
 
 @assunto_bp.route('/recuperarassunto/<int:id_assunto>')
 def recuperar_assunto(id_assunto):
@@ -40,3 +41,5 @@ def deletar_assunto(id_assunto):
     db.session.commit()
 
     return redirect(url_for('.recuperarassunto', id_assunto=id_assunto))
+=======
+>>>>>>> dev

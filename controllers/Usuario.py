@@ -5,6 +5,11 @@ import hashlib
 from flask_login import current_user
 from flask_login import login_user, logout_user, login_required
 import re
+<<<<<<< HEAD
+=======
+from models.Formulario import Formulario
+from models.Materia_peso import Materia_peso
+>>>>>>> dev
 
 user_bp = Blueprint('usuario', __name__, template_folder='templates')
 
@@ -86,6 +91,10 @@ def login_usuario():
         return redirect(url_for('usuario.login_usuario'))
     
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> dev
 #fazer funcionalidade de exigir login para poder fazer update
 @user_bp.route('/alterarperfil', methods=['POST'])
 @login_required
@@ -134,11 +143,29 @@ def update_user():
 def deletar_user():
     if not current_user.is_authenticated:
         return redirect(url_for("login")) 
+<<<<<<< HEAD
+=======
+    
+    #deletar formulario e materia_peso
+    form = Formulario.query.filter_by(id_usuario=current_user.id).first()
+    lista_materia_peso = Materia_peso.query.filter_by(id_formulario=form.id_formulario).all()
+    for obj in lista_materia_peso:
+        db.session.delete(obj)
+        db.session.commit()
+
+    db.session.delete(form)
+    db.session.commit()
+
+>>>>>>> dev
     user = Usuario.query.get(current_user.id)
     logout_user()
     db.session.delete(user)
     db.session.commit()
     session.pop('user', None)
+<<<<<<< HEAD
+=======
+
+>>>>>>> dev
     return redirect(url_for('index'))
 
 

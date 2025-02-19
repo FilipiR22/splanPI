@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 #!/workspaces/splanPI/venv/bin/python
+=======
+#!/home/danilo/Documents/PROGRAMAÇÃO/PI/novo_repo/splanPI/venv/bin/python3
+>>>>>>> dev
 # -*- coding: utf-8 -*-
 import re
 import sys

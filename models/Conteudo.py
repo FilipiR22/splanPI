@@ -14,4 +14,8 @@ class Conteudo(db.Model):
         self.id_assunto = id_assunto
 
     def __repr__(self):
+<<<<<<< HEAD
         return "<Conteudo {}>".format(self.nome)
+=======
+        return "<Conteudo {}>".format(self.nome)
+>>>>>>> dev

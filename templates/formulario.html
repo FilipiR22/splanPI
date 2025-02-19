@@ -20,16 +20,25 @@
         <div class="alert alert-{{tipo}}" role="alert">{{msg}}</div>
         {% endfor %}
         {% endif %}
+<<<<<<< HEAD
         <form action="{{ url_for('formulario.receber_formulario') }}" method="post" class="form-formulario_cronograma p-4 w-100">
+=======
+        <form action="{{ url_for('formulario.processar_formulario') }}" method="post" class="form-formulario_cronograma p-4 w-100">
+>>>>>>> dev
             <h3 class="text-center mb-4">Insira os dados solicitados</h3>
             <div class="content-formulario_cronograma d-flex flex-column gap-4 fw-medium">
                 <div class="div_input py-3 p-4 d-flex gap-4 align-items-center">
                     <input class="form-control bg-transparent border-0" name='horas_estudo' type="number"
+<<<<<<< HEAD
                         placeholder="Quantas horas semanais de estudo você tem?" aria-label="default input">
+=======
+                        placeholder="Quantas horas para estudo" aria-label="default input" required>
+>>>>>>> dev
                 </div>
                 <div class="mt-3">
                     <h5 class="mb-4">Quais matérias você vai estudar:</h5>
                     <div class="form-check">
+<<<<<<< HEAD
                         <input class="form-check-input" type="checkbox" id="portugues" name="materias[]"
                             value="portugues">
                         <label class="form-check-label" for="portugues">Português</label>
@@ -39,25 +48,51 @@
                                 <input class="form-check-input" type="radio" id="peeso1_portugues"
                                     name="dificuldade_portugues" value="1">
                                 <label class="form-check-label" for="peeso1_portugues">1</label>
+=======
+                        <input class="form-check-input" type="checkbox" id="portugues" class="btn btn-primary"
+                            type="button" data-bs-toggle="collapse" data-bs-target="#collapsePortugues"
+                            aria-expanded="false" aria-controls="collapsePortugues" name="materias[]"
+                            value="portugues">
+                        <label class="form-check-label" for="portugues">Português</label>
+                        <div class="mb-3 mt-3 collapse" id="collapsePortugues">
+                            <label class="form-label">Dificuldade na matéria:</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" id="peso1_portugues"
+                                    name="dificuldade_portugues" value="1">
+                                <label class="form-check-label" for="peso1_portugues">Peso 1</label>
+>>>>>>> dev
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" id="peso2_portugues"
                                     name="dificuldade_portugues" value="2">
+<<<<<<< HEAD
                                 <label class="form-check-label" for="peso2_portugues">2</label>
+=======
+                                <label class="form-check-label" for="peso2_portugues">Peso 2</label>
+>>>>>>> dev
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" id="peso3_portugues"
                                     name="dificuldade_portugues" value="3">
+<<<<<<< HEAD
                                 <label class="form-check-label" for="peso3_portugues">3</label>
+=======
+                                <label class="form-check-label" for="peso3_portugues">Peso 3</label>
+>>>>>>> dev
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" id="peso4_portugues"
                                     name="dificuldade_portugues" value="4">
+<<<<<<< HEAD
                                 <label class="form-check-label" for="peso4_portugues">4</label>
+=======
+                                <label class="form-check-label" for="peso4_portugues">Peso 4</label>
+>>>>>>> dev
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" id="peso5_portugues"
                                     name="dificuldade_portugues" value="5">
+<<<<<<< HEAD
                                 <label class="form-check-label" for="peso5_portugues">5</label>
                             </div>
                         </div>
@@ -72,31 +107,67 @@
                                 <input class="form-check-input" type="radio" id="peso1_matematica"
                                     name="dificuldade_matematica" value="1">
                                 <label class="form-check-label" for="peso1_matematica">1</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" id="peso2_matematica"
-                                    name="dificuldade_matematica" value="2">
-                                <label class="form-check-label" for="peso2_matematica">2</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" id="peso3_matematica"
-                                    name="dificuldade_matematica" value="3">
-                                <label class="form-check-label" for="peso3_matematica">3</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" id="peso4_matematica"
-                                    name="dificuldade_matematica" value="4">
-                                <label class="form-check-label" for="peso4_matematica">4</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" id="peso5_matematica"
-                                    name="dificuldade_matematica" value="5">
-                                <label class="form-check-label" for="peso5_matematica">5</label>
+=======
+                                <label class="form-check-label" for="peso5_portugues">Peso 5</label>
                             </div>
                         </div>
                     </div>
 
                     <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="matematica" class="btn btn-primary"
+                            type="button" data-bs-toggle="collapse" data-bs-target="#collapseMatematica"
+                            aria-expanded="false" aria-controls="collapseMatematica" name="materias[]"
+                            value="matematica">
+                        <label class="form-check-label" for="matematica">Matemática</label>
+                        <div class="mb-3 mt-3 collapse" id="collapseMatematica">
+                            <label class="form-label">Dificuldade na matéria:</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" id="peso1_matematica"
+                                    name="dificuldade_matematica" value="1">
+                                <label class="form-check-label" for="peso1_matematica">Peso 1</label>
+>>>>>>> dev
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" id="peso2_matematica"
+                                    name="dificuldade_matematica" value="2">
+<<<<<<< HEAD
+                                <label class="form-check-label" for="peso2_matematica">2</label>
+=======
+                                <label class="form-check-label" for="peso2_matematica">Peso 2</label>
+>>>>>>> dev
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" id="peso3_matematica"
+                                    name="dificuldade_matematica" value="3">
+<<<<<<< HEAD
+                                <label class="form-check-label" for="peso3_matematica">3</label>
+=======
+                                <label class="form-check-label" for="peso3_matematica">Peso 3</label>
+>>>>>>> dev
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" id="peso4_matematica"
+                                    name="dificuldade_matematica" value="4">
+<<<<<<< HEAD
+                                <label class="form-check-label" for="peso4_matematica">4</label>
+=======
+                                <label class="form-check-label" for="peso4_matematica">Peso 4</label>
+>>>>>>> dev
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" id="peso5_matematica"
+                                    name="dificuldade_matematica" value="5">
+<<<<<<< HEAD
+                                <label class="form-check-label" for="peso5_matematica">5</label>
+=======
+                                <label class="form-check-label" for="peso5_matematica">Peso 5</label>
+>>>>>>> dev
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-check">
+<<<<<<< HEAD
                         <input class="form-check-input" type="checkbox" id="historia" name="materias[]"
                             value="historia">
                         <label class="form-check-label" for="historia">História</label>
@@ -106,31 +177,61 @@
                                 <input class="form-check-input" type="radio" id="peso1_historia"
                                     name="dificuldade_historia" value="1">
                                 <label class="form-check-label" for="peso1_historia">1</label>
+=======
+                        <input class="form-check-input" type="checkbox" id="historia" class="btn btn-primary"
+                            type="button" data-bs-toggle="collapse" data-bs-target="#collapseHistoria"
+                            aria-expanded="false" aria-controls="collapseHistoria" name="materias[]"
+                            value="historia">
+                        <label class="form-check-label" for="historia">História</label>
+                        <div class="mb-3 mt-3 collapse" id="collapseHistoria">
+                            <label class="form-label">Dificuldade na matéria:</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" id="peso1_historia"
+                                    name="dificuldade_historia" value="1">
+                                <label class="form-check-label" for="peso1_historia">Peso 1</label>
+>>>>>>> dev
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" id="peso2_historia"
                                     name="dificuldade_historia" value="2">
+<<<<<<< HEAD
                                 <label class="form-check-label" for="peso2_historia">2</label>
+=======
+                                <label class="form-check-label" for="peso2_historia">Peso 2</label>
+>>>>>>> dev
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" id="peso3_historia"
                                     name="dificuldade_historia" value="3">
+<<<<<<< HEAD
                                 <label class="form-check-label" for="peso3_historia">3</label>
+=======
+                                <label class="form-check-label" for="peso3_historia">Peso 3</label>
+>>>>>>> dev
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" id="peso4_historia"
                                     name="dificuldade_historia" value="4">
+<<<<<<< HEAD
                                 <label class="form-check-label" for="peso4_historia">4</label>
+=======
+                                <label class="form-check-label" for="peso4_historia">Peso 4</label>
+>>>>>>> dev
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" id="peso5_historia"
                                     name="dificuldade_historia" value="5">
+<<<<<<< HEAD
                                 <label class="form-check-label" for="peso5_historia">5</label>
+=======
+                                <label class="form-check-label" for="peso5_historia">Peso 5</label>
+>>>>>>> dev
                             </div>
                         </div>
                     </div>
 
                     <div class="form-check">
+<<<<<<< HEAD
                         <input class="form-check-input" type="checkbox" id="filosofia" name="materias[]"
                             value="filosofia">
                         <label class="form-check-label" for="filosofia">Filosofia</label>
@@ -140,31 +241,61 @@
                                 <input class="form-check-input" type="radio" id="peso1_filosofia"
                                     name="dificuldade_filosofia" value="1">
                                 <label class="form-check-label" for="peso1_filosofia">1</label>
+=======
+                        <input class="form-check-input" type="checkbox" id="filosofia" class="btn btn-primary"
+                            type="button" data-bs-toggle="collapse" data-bs-target="#collapseFilosofia"
+                            aria-expanded="false" aria-controls="collapseFilosofia" name="materias[]"
+                            value="filosofia">
+                        <label class="form-check-label" for="filosofia">Filosofia</label>
+                        <div class="mb-3 mt-3 collapse" id="collapseFilosofia">
+                            <label class="form-label">Dificuldade na matéria:</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" id="peso1_filosofia"
+                                    name="dificuldade_filosofia" value="1">
+                                <label class="form-check-label" for="peso1_filosofia">Peso 1</label>
+>>>>>>> dev
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" id="peso2_filosofia"
                                     name="dificuldade_filosofia" value="2">
+<<<<<<< HEAD
                                 <label class="form-check-label" for="peso2_filosofia">2</label>
+=======
+                                <label class="form-check-label" for="peso2_filosofia">Peso 2</label>
+>>>>>>> dev
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" id="peso3_filosofia"
                                     name="dificuldade_filosofia" value="3">
+<<<<<<< HEAD
                                 <label class="form-check-label" for="peso3_filosofia">3</label>
+=======
+                                <label class="form-check-label" for="peso3_filosofia">Peso 3</label>
+>>>>>>> dev
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" id="peso4_filosofia"
                                     name="dificuldade_filosofia" value="4">
+<<<<<<< HEAD
                                 <label class="form-check-label" for="peso4_filosofia">4</label>
+=======
+                                <label class="form-check-label" for="peso4_filosofia">Peso 4</label>
+>>>>>>> dev
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" id="peso5_filosofia"
                                     name="dificuldade_filosofia" value="5">
+<<<<<<< HEAD
                                 <label class="form-check-label" for="peso5_filosofia">5</label>
+=======
+                                <label class="form-check-label" for="peso5_filosofia">Peso 5</label>
+>>>>>>> dev
                             </div>
                         </div>
                     </div>
 
                     <div class="form-check">
+<<<<<<< HEAD
                         <input class="form-check-input" type="checkbox" id="sociologia" name="materias[]"
                             value="sociologia">
                         <label class="form-check-label" for="sociologia">Sociologia</label>
@@ -174,31 +305,98 @@
                                 <input class="form-check-input" type="radio" id="peso1_sociologia"
                                     name="dificuldade_sociologia" value="1">
                                 <label class="form-check-label" for="peso1_sociologia">1</label>
+=======
+                        <input class="form-check-input" type="checkbox" id="sociologia" class="btn btn-primary"
+                            type="button" data-bs-toggle="collapse" data-bs-target="#collapseSociologia"
+                            aria-expanded="false" aria-controls="collapseSociologia" name="materias[]"
+                            value="sociologia">
+                        <label class="form-check-label" for="sociologia">Sociologia</label>
+                        <div class="mb-3 mt-3 collapse" id="collapseSociologia">
+                            <label class="form-label">Dificuldade na matéria:</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" id="peso1_sociologia"
+                                    name="dificuldade_sociologia" value="1">
+                                <label class="form-check-label" for="peso1_sociologia">Peso 1</label>
+>>>>>>> dev
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" id="peso2_sociologia"
                                     name="dificuldade_sociologia" value="2">
+<<<<<<< HEAD
                                 <label class="form-check-label" for="peso2_sociologia">2</label>
+=======
+                                <label class="form-check-label" for="peso2_sociologia">Peso 2</label>
+>>>>>>> dev
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" id="peso3_sociologia"
                                     name="dificuldade_sociologia" value="3">
+<<<<<<< HEAD
                                 <label class="form-check-label" for="peso3_sociologia">3</label>
+=======
+                                <label class="form-check-label" for="peso3_sociologia">Peso 3</label>
+>>>>>>> dev
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" id="peso4_sociologia"
                                     name="dificuldade_sociologia" value="4">
+<<<<<<< HEAD
                                 <label class="form-check-label" for="peso4_sociologia">4</label>
+=======
+                                <label class="form-check-label" for="peso4_sociologia">Peso 4</label>
+>>>>>>> dev
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" id="peso5_sociologia"
                                     name="dificuldade_sociologia" value="5">
+<<<<<<< HEAD
                                 <label class="form-check-label" for="peso5_sociologia">5</label>
+=======
+                                <label class="form-check-label" for="peso5_sociologia">Peso 5</label>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="ingles" class="btn btn-primary"
+                            type="button" data-bs-toggle="collapse" data-bs-target="#collapseIngles"
+                            aria-expanded="false" aria-controls="collapseIngles" name="materias[]"
+                            value="ingles">
+                        <label class="form-check-label" for="ingles">Inglês</label>
+                        <div class="mb-3 mt-3 collapse" id="collapseIngles">
+                            <label class="form-label">Dificuldade na matéria:</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" id="peso1_ingles"
+                                    name="dificuldade_ingles" value="1">
+                                <label class="form-check-label" for="peso1_ingles">Peso 1</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" id="peso2_ingles"
+                                    name="dificuldade_ingles" value="2">
+                                <label class="form-check-label" for="peso2_ingles">Peso 2</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" id="peso3_ingles"
+                                    name="dificuldade_ingles" value="3">
+                                <label class="form-check-label" for="peso3_ingles">Peso 3</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" id="peso4_ingles"
+                                    name="dificuldade_ingles" value="4">
+                                <label class="form-check-label" for="peso4_ingles">Peso 4</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" id="peso5_ingles"
+                                    name="dificuldade_ingles" value="5">
+                                <label class="form-check-label" for="peso5_ingles">Peso 5</label>
+>>>>>>> dev
                             </div>
                         </div>
                     </div>
 
                     <div class="form-check">
+<<<<<<< HEAD
                         <input class="form-check-input" type="checkbox" id="espanhol" name="materias[]"
                             value="espanhol">
                         <label class="form-check-label" for="espanhol">Espanhol</label>
@@ -241,31 +439,61 @@
                                 <input class="form-check-input" type="radio" id="peso1_fisica" name="dificuldade_fisica"
                                     value="1">
                                 <label class="form-check-label" for="peso1_fisica">1</label>
+=======
+                        <input class="form-check-input" type="checkbox" id="fisica" class="btn btn-primary"
+                            type="button" data-bs-toggle="collapse" data-bs-target="#collapseFisica"
+                            aria-expanded="false" aria-controls="collapseFisica" name="materias[]"
+                            value="fisica">
+                        <label class="form-check-label" for="fisica">Física</label>
+                        <div class="mb-3 mt-3 collapse" id="collapseFisica">
+                            <label class="form-label">Dificuldade na matéria:</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" id="peso1_fisica" name="dificuldade_fisica"
+                                    value="1">
+                                <label class="form-check-label" for="peso1_fisica">Peso 1</label>
+>>>>>>> dev
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" id="peso2_fisica" name="dificuldade_fisica"
                                     value="2">
+<<<<<<< HEAD
                                 <label class="form-check-label" for="peso2_fisica">2</label>
+=======
+                                <label class="form-check-label" for="peso2_fisica">Peso 2</label>
+>>>>>>> dev
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" id="peso3_fisica" name="dificuldade_fisica"
                                     value="3">
+<<<<<<< HEAD
                                 <label class="form-check-label" for="peso3_fisica">3</label>
+=======
+                                <label class="form-check-label" for="peso3_fisica">Peso 3</label>
+>>>>>>> dev
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" id="peso4_fisica" name="dificuldade_fisica"
                                     value="4">
+<<<<<<< HEAD
                                 <label class="form-check-label" for="peso4_fisica">4</label>
+=======
+                                <label class="form-check-label" for="peso4_fisica">Peso 4</label>
+>>>>>>> dev
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" id="peso5_fisica" name="dificuldade_fisica"
                                     value="5">
+<<<<<<< HEAD
                                 <label class="form-check-label" for="peso5_fisica">5</label>
+=======
+                                <label class="form-check-label" for="peso5_fisica">Peso 5</label>
+>>>>>>> dev
                             </div>
                         </div>
                     </div>
 
                     <div class="form-check">
+<<<<<<< HEAD
                         <input class="form-check-input" type="checkbox" id="quimica" name="materias[]" value="quimica">
                         <label class="form-check-label" for="quimica">Química</label>
                         <div class="mb-3 mt-3">
@@ -274,30 +502,60 @@
                                 <input class="form-check-input" type="radio" id="peso1_quimica"
                                     name="dificuldade_quimica" value="1">
                                 <label class="form-check-label" for="peso1_quimica">1</label>
+=======
+                        <input class="form-check-input" type="checkbox" id="quimica" class="btn btn-primary"
+                            type="button" data-bs-toggle="collapse" data-bs-target="#collapseQuimica"
+                            aria-expanded="false" aria-controls="collapseQuimica" name="materias[]"
+                            value="quimica">
+                        <label class="form-check-label" for="quimica">Química</label>
+                        <div class="mb-3 mt-3 collapse" id="collapseQuimica">
+                            <label class="form-label">Dificuldade na matéria:</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" id="peso1_quimica"
+                                    name="dificuldade_quimica" value="1">
+                                <label class="form-check-label" for="peso1_quimica">Peso 1</label>
+>>>>>>> dev
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" id="peso2_quimica"
                                     name="dificuldade_quimica" value="2">
+<<<<<<< HEAD
                                 <label class="form-check-label" for="peso2_quimica">2</label>
+=======
+                                <label class="form-check-label" for="peso2_quimica">Peso 2</label>
+>>>>>>> dev
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" id="peso3_quimica"
                                     name="dificuldade_quimica" value="3">
+<<<<<<< HEAD
                                 <label class="form-check-label" for="peso3_quimica">3</label>
+=======
+                                <label class="form-check-label" for="peso3_quimica">Peso 3</label>
+>>>>>>> dev
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" id="peso4_quimica"
                                     name="dificuldade_quimica" value="4">
+<<<<<<< HEAD
                                 <label class="form-check-label" for="peso4_quimica">4</label>
+=======
+                                <label class="form-check-label" for="peso4_quimica">Peso 4</label>
+>>>>>>> dev
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" id="peso5_quimica"
                                     name="dificuldade_quimica" value="5">
+<<<<<<< HEAD
                                 <label class="form-check-label" for="peso5_quimica">5</label>
+=======
+                                <label class="form-check-label" for="peso5_quimica">Peso 5</label>
+>>>>>>> dev
                             </div>
                         </div>
                     </div>
 
+<<<<<<< HEAD
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" id="artes" name="materias[]" value="artes">
                         <label class="form-check-label" for="artes">Artes</label>
@@ -307,31 +565,62 @@
                                 <input class="form-check-input" type="radio" id="peso1_artes" name="dificuldade_artes"
                                     value="1">
                                 <label class="form-check-label" for="peso1_artes">1</label>
+=======
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="artes" class="btn btn-primary" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#collapseArtes" aria-expanded="false"
+                            aria-controls="collapseArtes" name="materias[]" value="artes">
+                        <label class="form-check-label" for="artes">Artes</label>
+                        <div class="mb-3 mt-3 collapse" id="collapseArtes">
+                            <label class="form-label">Dificuldade na matéria:</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" id="peso1_artes" name="dificuldade_artes"
+                                    value="1">
+                                <label class="form-check-label" for="peso1_artes">Peso 1</label>
+>>>>>>> dev
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" id="peso2_artes" name="dificuldade_artes"
                                     value="2">
+<<<<<<< HEAD
                                 <label class="form-check-label" for="peso2_artes">2</label>
+=======
+                                <label class="form-check-label" for="peso2_artes">Peso 2</label>
+>>>>>>> dev
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" id="peso3_artes" name="dificuldade_artes"
                                     value="3">
+<<<<<<< HEAD
                                 <label class="form-check-label" for="peso3_artes">3</label>
+=======
+                                <label class="form-check-label" for="peso3_artes">Peso 3</label>
+>>>>>>> dev
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" id="peso4_artes" name="dificuldade_artes"
                                     value="4">
+<<<<<<< HEAD
                                 <label class="form-check-label" for="peso4_artes">4</label>
+=======
+                                <label class="form-check-label" for="peso4_artes">Peso 4</label>
+>>>>>>> dev
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" id="peso5_artes" name="dificuldade_artes"
                                     value="5">
+<<<<<<< HEAD
                                 <label class="form-check-label" for="peso5_artes">5</label>
+=======
+                                <label class="form-check-label" for="peso5_artes">Peso 5</label>
+>>>>>>> dev
                             </div>
                         </div>
                     </div>
 
                     <div class="form-check">
+<<<<<<< HEAD
                         <input class="form-check-input" type="checkbox" id="edu_fisica" name="materias[]"
                             value="edu_fisica">
                         <label class="form-check-label" for="edu_fisica">Edu. Física</label>
@@ -361,11 +650,45 @@
                                 <input class="form-check-input" type="radio" id="peso5_edu_fisica"
                                     name="dificuldade_edu_fisica" value="5">
                                 <label class="form-check-label" for="peso5_edu_fisica">5</label>
+=======
+                        <input class="form-check-input" type="checkbox" id="literatura" class="btn btn-primary"
+                            type="button" data-bs-toggle="collapse" data-bs-target="#collapseLiteratura"
+                            aria-expanded="false" aria-controls="collapseLiteratura" name="materias[]"
+                            value="literatura">
+                        <label class="form-check-label" for="literatura">Literatura</label>
+                        <div class="mb-3 mt-3 collapse" id="collapseLiteratura">
+                            <label class="form-label">Dificuldade na matéria:</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" id="peso1_literatura"
+                                    name="dificuldade_literatura" value="1">
+                                <label class="form-check-label" for="peso1_literatura">Peso 1</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" id="peso2_literatura"
+                                    name="dificuldade_literatura" value="2">
+                                <label class="form-check-label" for="peso2_literatura">Peso 2</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" id="peso3_literatura"
+                                    name="dificuldade_literatura" value="3">
+                                <label class="form-check-label" for="peso3_literatura">Peso 3</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" id="peso4_literatura"
+                                    name="dificuldade_literatura" value="4">
+                                <label class="form-check-label" for="peso4_literatura">Peso 4</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" id="peso5_literatura"
+                                    name="dificuldade_literatura" value="5">
+                                <label class="form-check-label" for="peso5_literatura">Peso 5</label>
+>>>>>>> dev
                             </div>
                         </div>
                     </div>
 
                     <div class="form-check">
+<<<<<<< HEAD
                         <input class="form-check-input" type="checkbox" id="biologia" name="materias[]"
                             value="biologia">
                         <label class="form-check-label" for="biologia">Biologia</label>
@@ -375,26 +698,55 @@
                                 <input class="form-check-input" type="radio" id="peso1_biologia"
                                     name="dificuldade_biologia" value="1">
                                 <label class="form-check-label" for="peso1_biologia">1</label>
+=======
+                        <input class="form-check-input" type="checkbox" id="biologia" class="btn btn-primary"
+                            type="button" data-bs-toggle="collapse" data-bs-target="#collapseBiologia"
+                            aria-expanded="false" aria-controls="collapseBiologia" name="materias[]"
+                            value="biologia">
+                        <label class="form-check-label" for="biologia">Biologia</label>
+                        <div class="mb-3 mt-3 collapse" id="collapseBiologia">
+                            <label class="form-label">Dificuldade na matéria:</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" id="peso1_biologia"
+                                    name="dificuldade_biologia" value="1">
+                                <label class="form-check-label" for="peso1_biologia">Peso 1</label>
+>>>>>>> dev
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" id="peso2_biologia"
                                     name="dificuldade_biologia" value="2">
+<<<<<<< HEAD
                                 <label class="form-check-label" for="peso2_biologia">2</label>
+=======
+                                <label class="form-check-label" for="peso2_biologia">Peso 2</label>
+>>>>>>> dev
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" id="peso3_biologia"
                                     name="dificuldade_biologia" value="3">
+<<<<<<< HEAD
                                 <label class="form-check-label" for="peso3_biologia">3</label>
+=======
+                                <label class="form-check-label" for="peso3_biologia">Peso 3</label>
+>>>>>>> dev
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" id="peso4_biologia"
                                     name="dificuldade_biologia" value="4">
+<<<<<<< HEAD
                                 <label class="form-check-label" for="peso4_biologia">4</label>
+=======
+                                <label class="form-check-label" for="peso4_biologia">Peso 4</label>
+>>>>>>> dev
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" id="peso5_biologia"
                                     name="dificuldade_biologia" value="5">
+<<<<<<< HEAD
                                 <label class="form-check-label" for="peso5_biologia">5</label>
+=======
+                                <label class="form-check-label" for="peso5_biologia">Peso 5</label>
+>>>>>>> dev
                             </div>
                         </div>
                     </div>
