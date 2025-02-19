@@ -26,7 +26,7 @@ app.register_blueprint(formulario_bp, url_prefix='/formulario')
 app.register_blueprint(progresso_bp, url_prefix='/progresso')
 app.register_blueprint(peso_bp, url_prefix='/peso')
 
-app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
+app.config['SECRET_KEY'] = 'sua palavra secreta'
 
 # db_usuario = os.getenv('DB_USERNAME')
 # db_senha = os.getenv('DB_PASSWORD')
@@ -47,8 +47,8 @@ login_manager.login_view = "usuario.login_usuario"
 
 @login_manager.unauthorized_handler
 def unauthorized():
-    flash("Por favor, faça login para acessar esta página!", 'warning')
-    return redirect(url_for('usuario.login_usuario'))
+   flash("Por favor, faça login para acessar esta página!", 'warning')
+   return redirect(url_for('usuario.login_usuario'))
 
 
 
@@ -83,5 +83,5 @@ def dashboard_adm():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+   app.run(debug=True)
 
