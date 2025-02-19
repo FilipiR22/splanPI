@@ -1,11 +1,8 @@
 from flask import Flask, render_template, request, flash, redirect, url_for, make_response, session, Blueprint
 from models.Formulario import Formulario
-<<<<<<< HEAD
-=======
 from models.Materia import Materia
 from models.Materia_peso import Materia_peso
 from models.Assunto import Assunto
->>>>>>> dev
 from utils import db, login_manager
 from flask_login import current_user
 from flask_login import login_user, logout_user, login_required
@@ -19,11 +16,6 @@ def carregar_formulario():
 
 
 @formulario_bp.route('/receberformulario', methods=['POST'])
-<<<<<<< HEAD
-def receber_formulario():
-   flash('forms recebido')
-   return redirect(url_for('inicio'))
-=======
 def processar_formulario():
    if request.method == "GET":
       return render_template('formulario.html')
@@ -114,4 +106,3 @@ def criar_cronograma():
    #    assuntos = Assunto.query.filter_by(id_materia=materia.id_materia).all()
 
    return render_template('teste.html', materias_pesos=materias_pesos)
->>>>>>> dev

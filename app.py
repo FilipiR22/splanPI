@@ -51,7 +51,6 @@ def unauthorized():
    return redirect(url_for('usuario.login_usuario'))
 
 
-
 @app.route('/')
 def index():
    return render_template('home.html')
