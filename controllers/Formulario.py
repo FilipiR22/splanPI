@@ -2,7 +2,9 @@ from flask import Flask, render_template, request, flash, redirect, url_for, mak
 from models.Formulario import Formulario
 from models.Materia import Materia
 from models.Materia_peso import Materia_peso
+from models.Progresso import Progresso
 from models.Assunto import Assunto
+from models.Usuario import Usuario
 from utils import db, login_manager
 from flask_login import current_user
 from flask_login import login_user, logout_user, login_required
@@ -11,15 +13,15 @@ formulario_bp = Blueprint('formulario', __name__, template_folder='templates')
 
 
 @formulario_bp.route('/responder')
+@login_required
 def carregar_formulario():
    return render_template('formulario.html')
 
-
+#armazena os dados do formulario
 @formulario_bp.route('/receberformulario', methods=['POST'])
+@login_required
 def processar_formulario():
-   if request.method == "GET":
-      return render_template('formulario.html')
-    
+
 #cadastrar formulario
    horas_estudo = request.form['horas_estudo']
    form = Formulario(current_user.id, horas_estudo)
@@ -62,14 +64,14 @@ def processar_formulario():
    print(soma_pesos)
    print(dificuldades.keys())
    print(dificuldades.values())
-  
-
+   
+   criar_cronograma(current_user)
    return redirect(url_for('inicio'))
 
 
-
-def dados_cronograma():
-   formulario = Formulario.query.filter_by(id_usuario=current_user.id).first()
+#função que pega as materias e seus respectivos tempos de estudo
+def dados_cronograma(usuario):
+   formulario = Formulario.query.filter_by(id_usuario=usuario.id).first()
    lista_materias_pesos = Materia_peso.query.filter_by(id_formulario=formulario.id_formulario).all()
    tempo_total = formulario.tempo_total
    
@@ -84,7 +86,7 @@ def dados_cronograma():
       soma_pesos += obj.peso
       print(soma_pesos)
 
-   unidade_tempo = float(tempo_total) / soma_pesos
+   unidade_tempo = round((float(tempo_total) / soma_pesos),1)
    print(unidade_tempo)
 
    tempos_materias = {materia: float(dificuldade) * unidade_tempo for materia, dificuldade in materias_pesos.items()}
@@ -92,17 +94,124 @@ def dados_cronograma():
 
    return tempos_materias
 
-@formulario_bp.route('cronograma')
-def criar_cronograma():
-   materias_pesos = dados_cronograma()
 
+# @formulario_bp.route('teste')
+# def teste_cronograma():
+#    lista_de_assuntos = criar_cronograma(current_user)
+#    return render_template('teste.html', assuntos=lista_de_assuntos)
    
-#desenvolver algoritmo para gerenciamento de progresso
 
 
 
-   # for chave in materias_pesos.keys():
-   #    materia = Materia.query.filter_by(nome=materia).first()
-   #    assuntos = Assunto.query.filter_by(id_materia=materia.id_materia).all()
+#cria/atualiza os progressos
+def criar_cronograma(usuario):
+   # usuario = current_user
+   materias_pesos = dados_cronograma(usuario)
+   ids_tempos = {}
 
-   return render_template('teste.html', materias_pesos=materias_pesos)
+   for mat, tempo in materias_pesos.items():
+      obj_mat = Materia.query.filter_by(nome=mat).first()
+      ids_tempos[obj_mat.id_materia] = tempo
+
+   print(ids_tempos)
+   lista_de_assuntos = []
+
+   for mat, tempo in ids_tempos.items():
+      # assuntos = Assunto.query.filter_by(id_materia=mat).all()
+      assuntos = Assunto.query.filter_by(id_materia=mat).all()
+      for ass in assuntos:
+         progresso = Progresso.query.filter(Progresso.id_assunto==ass.id_assunto, Progresso.id_usuario==usuario.id).first()
+         if progresso:
+            if progresso.concluido == True:
+               # print('assunto ja estudado')
+               #assunto ja estudado
+               continue
+            #assunto nao iniciado mas nao concluido
+            if (ass.duracao - progresso.tempo_estudado) > tempo:
+               print('assunto nao concluido ainda')
+               progresso.tempo_estudado += tempo
+               db.session.add(progresso)
+               db.session.commit()
+               lista_de_assuntos.append(ass.nome)
+               print(0, progresso.tempo_estudado, usuario.id, ass.id_assunto)
+               break
+            elif (ass.duracao - progresso.tempo_estudado) == tempo:
+               progresso.concluido = 1
+               progresso.tempo_estudado = ass.duracao
+               db.session.add(progresso)
+               db.session.commit()
+               lista_de_assuntos.append(ass.nome)
+               break
+            elif tempo > (ass.duracao - progresso.tempo_estudado):
+               progresso.concluido = 1
+               tempo -= (ass.duracao - progresso.tempo_estudado)
+               progresso.tempo_estudado = ass.duracao
+               db.session.add(progresso)
+               db.session.commit()
+               lista_de_assuntos.append(ass.nome)
+               continue
+               #proximo assunto e assim por diante
+         #assunto nao iniciado
+         if tempo > ass.duracao:
+            # print('assunto nao iniciado ainda')
+            #criar progresso ja concluido - apenas registrar o progresso
+            pgs = Progresso(1, ass.duracao, usuario.id, ass.id_assunto)
+            print(1, ass.duracao, usuario.id, ass.id_assunto)
+            #pegar tempo restante e jogar em outro assunto
+            db.session.add(pgs)
+            db.session.commit()
+            lista_de_assuntos.append(ass.nome)
+            print('assunto inicado e terminado - tempo de sobra')
+            tempo -= ass.duracao
+            continue
+            #criar um laço para que faça ate o tempo acabar e sem precisar fazer 10000000 de if
+         elif tempo == ass.duracao:
+            print('assunto inicado e terminado - tempo exato')
+            pgs = Progresso(1, ass.duracao, usuario.id, ass.id_assunto)
+            db.session.add(pgs)
+            db.session.commit()
+            print(1, ass.duracao, usuario.id, ass.id_assunto)
+            lista_de_assuntos.append(ass.nome)
+            break
+            
+         elif tempo < ass.duracao:
+            print('assunto nao iniciado')
+            pgs = Progresso(0, tempo, usuario.id, ass.id_assunto)
+            print(0, tempo, usuario.id, ass.id_assunto)
+            db.session.add(pgs)
+            db.session.commit()
+            print('assunto inicado mas nao terminado - tempo curto')
+            lista_de_assuntos.append(ass.nome)
+            break
+   print(lista_de_assuntos) 
+   print("Lista de Assuntos Criada no Cronograma:", lista_de_assuntos)
+   # return lista_de_assuntos
+
+
+#atualizar progresso dos usuarios
+# @formulario_bp.route('atualizar')
+def atualizar_cronogramas():
+   usuarios = Usuario.query.all()
+
+   for usuario in usuarios:
+      criar_cronograma(usuario)
+   # return redirect(url_for('carregar_cronograma'))
+
+
+
+
+def mostrar_assuntos():
+   assuntos = []
+   lista_progressos = Progresso.query.filter(Progresso.concluido==0, Progresso.id_usuario==current_user.id).all()
+
+   print("Debug - Lista de Progressos do Usuário:")
+   for pgs in lista_progressos:
+      print(f"ID Assunto: {pgs.id_assunto}, Tempo Estudado: {pgs.tempo_estudado}, Concluído: {pgs.concluido}")
+
+   for pgs in lista_progressos:
+      assunto = Assunto.query.filter_by(id_assunto=pgs.id_assunto).first()
+      assuntos.append(assunto.nome)
+   
+   print(assuntos)
+   return assuntos
+   
