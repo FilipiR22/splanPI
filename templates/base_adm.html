@@ -36,6 +36,30 @@
                         </span>
                     </div>
                 </a>
+                <div class="funcionalidade d-flex flex-column gap-4">
+                    <div class="d-flex align-items-center gap-3">
+                        <img src="{{ url_for('static', filename='img/icon-materias.svg') }}" alt="">
+                        <span class="name_funcionalidade">
+                            <a href="#materiasSubmenu" class="text-black mb-3 text-decoration-none"
+                                data-bs-toggle="collapse" aria-expanded="false">Matérias</a>
+                        </span>
+                    </div>
+                    <ul class="collapse lista__materias" id="materiasSubmenu">
+                        <li><a class="text-black" href="{{url_for('materia.listar_assuntos', materia='matematica')}}" >Matemática</a></li>
+                        <li><a class="text-black" href="{{url_for('materia.listar_assuntos', materia='fisica')}}" >Física</a></li>
+                        <li><a class="text-black" href="{{url_for('materia.listar_assuntos', materia='quimica')}}" >Química</a></li>
+                        <li><a class="text-black" href="{{url_for('materia.listar_assuntos', materia='portugues')}}" >Português</a></li>
+                        <li><a class="text-black" href="{{url_for('materia.listar_assuntos', materia='biologia')}}" >Biologia</a></li>
+                        <li><a class="text-black" href="{{url_for('materia.listar_assuntos', materia='historia')}}" >História</a></li>
+                        <li><a class="text-black" href="{{url_for('materia.listar_assuntos', materia='geografia')}}" >Geografia</a></li>
+                        <li><a class="text-black" href="{{url_for('materia.listar_assuntos', materia='filosofia')}}" >Filosofia</a></li>
+                        <li><a class="text-black" href="{{url_for('materia.listar_assuntos', materia='sociologia')}}" >Sociologia</a></li>
+                        <li><a class="text-black" href="{{url_for('materia.listar_assuntos', materia='ingles')}}" >Inglês</a></li>
+                        <li><a class="text-black" href="{{url_for('materia.listar_assuntos', materia='literatura')}}" >Literatura</a></li>
+                        <li><a class="text-black" href="{{url_for('materia.listar_assuntos', materia='artes')}}" >Artes</a></li>
+
+                    </ul>
+                </div>
                 <a href="{{url_for('usuario.logoff')}}" class="text-danger mt-auto align-items-end mt-auto d-inline-block text-decoration-none"><i
                         class="fa-solid fa-arrow-right-from-bracket"></i> <span>Sair</span></a>
             </div>
