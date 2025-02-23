@@ -13,11 +13,13 @@ formulario_bp = Blueprint('formulario', __name__, template_folder='templates')
 
 
 @formulario_bp.route('/responder')
+@login_required
 def carregar_formulario():
    return render_template('formulario.html')
 
 #armazena os dados do formulario
 @formulario_bp.route('/receberformulario', methods=['POST'])
+@login_required
 def processar_formulario():
 
 #cadastrar formulario
@@ -116,7 +118,7 @@ def criar_cronograma(usuario):
 
    for mat, tempo in ids_tempos.items():
       # assuntos = Assunto.query.filter_by(id_materia=mat).all()
-      assuntos = Assunto.query.filter_by(id_materia=mat).order_by(Assunto.id_assunto).all()
+      assuntos = Assunto.query.filter_by(id_materia=mat).all()
       for ass in assuntos:
          progresso = Progresso.query.filter(Progresso.id_assunto==ass.id_assunto, Progresso.id_usuario==usuario.id).first()
          if progresso:
@@ -170,7 +172,7 @@ def criar_cronograma(usuario):
             db.session.commit()
             print(1, ass.duracao, usuario.id, ass.id_assunto)
             lista_de_assuntos.append(ass.nome)
-            # break
+            break
             
          elif tempo < ass.duracao:
             print('assunto nao iniciado')

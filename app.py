@@ -78,6 +78,9 @@ def resetar_cronograma_semanal():
 @app.route('/dashboardadministrador')
 @login_required
 def dashboard_adm():
+   if current_user.tipo_user != 'adm':
+      flash('Acesso exclusivo para administradores!', 'danger')
+      return redirect(url_for('inicio'))
    return render_template('base_adm.html')
 
 
