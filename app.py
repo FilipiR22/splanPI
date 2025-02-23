@@ -9,7 +9,7 @@ from controllers.Usuario import user_bp
 from controllers.Materia import materia_bp
 from controllers.Assunto import assunto_bp
 from controllers.Conteudo import conteudo_bp
-from controllers.Formulario import formulario_bp
+from controllers.Formulario import formulario_bp, mostrar_assuntos, atualizar_cronogramas
 from controllers.Progresso import progresso_bp
 from controllers.Materia_peso import peso_bp
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
@@ -66,8 +66,14 @@ def inicio():
 @app.route('/cronograma')
 @login_required
 def carregar_cronograma():
-   return render_template('cronograma.html')
-
+   assuntos = mostrar_assuntos()
+   return render_template('teste.html', assuntos=assuntos)
+   
+@app.route('/atualizarcronograma')
+@login_required
+def resetar_cronograma_semanal():
+   atualizar_cronogramas()
+   return redirect(url_for('carregar_cronograma'))
 
 @app.route('/dashboardadministrador')
 @login_required

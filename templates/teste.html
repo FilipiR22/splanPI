@@ -6,8 +6,10 @@
     <title>Document</title>
 </head>
 <body>
-    {% for chave, valor in materias_pesos.items() %}
-        <p>{{chave}}: {{valor}} horas</p>
+    {% for ass in assuntos %}
+        <p>{{ass}}</p>
     {% endfor %}
+
+    <a href="{{url_for('resetar_cronograma_semanal')}}">Atualizar cronograma</a>
 </body>
 </html>

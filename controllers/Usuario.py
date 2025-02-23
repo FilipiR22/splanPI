@@ -6,6 +6,7 @@ from flask_login import current_user
 from flask_login import login_user, logout_user, login_required
 import re
 from models.Formulario import Formulario
+from models.Progresso import Progresso
 from models.Materia_peso import Materia_peso
 
 user_bp = Blueprint('usuario', __name__, template_folder='templates')
@@ -147,6 +148,11 @@ def deletar_user():
 
     db.session.delete(form)
     db.session.commit()
+
+    lista_progressos = Progresso.query.filter_by(id_usuario=current_user.id)
+    for obj in lista_progressos:
+        db.session.delete(obj)
+        db.session.commit()
 
     user = Usuario.query.get(current_user.id)
     logout_user()
