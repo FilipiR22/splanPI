@@ -34,7 +34,7 @@ def processar_formulario():
 #cadastrar pesos e materias
    materias_selecionadas = request.form.getlist("materias[]")
 
-   lista_materias = ['matematica', 'portugues', 'fisica', 'quimica', 'biologia', 'geografia', 'historia', 'literatura', 'artes', 'filosofia', 'sociologia', 'ingles']
+   lista_materias = ['matemática', 'português', 'física', 'química', 'biologia', 'geografia', 'história', 'literatura', 'artes', 'filosofia', 'sociologia', 'inglês']
    
    dificuldades = {}
    soma_pesos = 0
