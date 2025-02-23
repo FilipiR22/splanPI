@@ -5,7 +5,7 @@ import json
 import os
 from flask_migrate import Migrate
 from utils import db, login_manager
-from controllers.Usuario import user_bp
+from controllers.Usuario import user_bp, pegar_usuarios
 from controllers.Materia import materia_bp
 from controllers.Assunto import assunto_bp
 from controllers.Conteudo import conteudo_bp
@@ -83,6 +83,15 @@ def dashboard_adm():
       return redirect(url_for('inicio'))
    return render_template('base_adm.html')
 
+
+@app.route('/gerenciarusuarios')
+@login_required
+def gerenciar_users():
+   if current_user.tipo_user != 'adm':
+      flash('Acesso exclusivo para administradores!', 'danger')
+      return redirect(url_for('inicio'))
+   usuarios = pegar_usuarios()
+   return render_template('gerenciar_usuario.html', usuarios=usuarios)
 
 
 # @app.route('/debug_session')

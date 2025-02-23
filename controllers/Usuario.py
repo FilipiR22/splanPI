@@ -178,3 +178,7 @@ def logoff():
 def carregar_perfil():
     print(current_user)
     return render_template('perfil_user.html', user=current_user)
+
+def pegar_usuarios():
+    usuarios = Usuario.query.filter_by(tipo_user='comum').all()
+    return usuarios
