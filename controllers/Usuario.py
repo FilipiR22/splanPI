@@ -178,7 +178,8 @@ def logoff():
 @user_bp.route('/perfil')
 @login_required
 def carregar_perfil():
-    print(current_user)
+    if current_user.tipo_user == 'adm':
+        return render_template('perfil_adm.html', user=current_user)
     return render_template('perfil_user.html', user=current_user)
 
 def pegar_usuarios():
