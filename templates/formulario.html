@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br" class="h-auto">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,7 +21,8 @@
         <div class="alert alert-{{tipo}}" role="alert">{{msg}}</div>
         {% endfor %}
         {% endif %}
-        <form action="{{ url_for('formulario.inserir_dados_form') }}" method="post" class="form-formulario_cronograma p-4 w-100">
+        <form action="{{ url_for('formulario.inserir_dados_form') }}" method="post"
+            class="form-formulario_cronograma p-4 w-100">
             <h3 class="text-center mb-4">Insira os dados solicitados</h3>
             <div class="content-formulario_cronograma d-flex flex-column gap-4 fw-medium">
                 <div class="div_input py-3 p-4 d-flex gap-4 align-items-center">
@@ -32,8 +34,7 @@
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" id="português" class="btn btn-primary"
                             type="button" data-bs-toggle="collapse" data-bs-target="#collapseportuguês"
-                            aria-expanded="false" aria-controls="collapseportuguês" name="materias[]"
-                            value="português">
+                            aria-expanded="false" aria-controls="collapseportuguês" name="materias[]" value="português">
                         <label class="form-check-label" for="português">Português</label>
                         <div class="mb-3 mt-3 collapse" id="collapseportuguês">
                             <label class="form-label">Dificuldade na matéria:</label>
@@ -104,8 +105,7 @@
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" id="história" class="btn btn-primary"
                             type="button" data-bs-toggle="collapse" data-bs-target="#collapsehistória"
-                            aria-expanded="false" aria-controls="collapsehistória" name="materias[]"
-                            value="história">
+                            aria-expanded="false" aria-controls="collapsehistória" name="materias[]" value="história">
                         <label class="form-check-label" for="história">História</label>
                         <div class="mb-3 mt-3 collapse" id="collapsehistória">
                             <label class="form-label">Dificuldade na matéria:</label>
@@ -140,8 +140,7 @@
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" id="filosofia" class="btn btn-primary"
                             type="button" data-bs-toggle="collapse" data-bs-target="#collapseFilosofia"
-                            aria-expanded="false" aria-controls="collapseFilosofia" name="materias[]"
-                            value="filosofia">
+                            aria-expanded="false" aria-controls="collapseFilosofia" name="materias[]" value="filosofia">
                         <label class="form-check-label" for="filosofia">Filosofia</label>
                         <div class="mb-3 mt-3 collapse" id="collapseFilosofia">
                             <label class="form-label">Dificuldade na matéria:</label>
@@ -209,38 +208,36 @@
                         </div>
                     </div>
 
-
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" id="inglês" class="btn btn-primary"
                             type="button" data-bs-toggle="collapse" data-bs-target="#collapseinglês"
-                            aria-expanded="false" aria-controls="collapseinglês" name="materias[]"
-                            value="inglês">
+                            aria-expanded="false" aria-controls="collapseinglês" name="materias[]" value="inglês">
                         <label class="form-check-label" for="inglês">Inglês</label>
                         <div class="mb-3 mt-3 collapse" id="collapseinglês">
                             <label class="form-label">Dificuldade na matéria:</label>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" id="peso1_inglês"
-                                    name="dificuldade_inglês" value="1">
+                                <input class="form-check-input" type="radio" id="peso1_inglês" name="dificuldade_inglês"
+                                    value="1">
                                 <label class="form-check-label" for="peso1_inglês">Peso 1</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" id="peso2_inglês"
-                                    name="dificuldade_inglês" value="2">
+                                <input class="form-check-input" type="radio" id="peso2_inglês" name="dificuldade_inglês"
+                                    value="2">
                                 <label class="form-check-label" for="peso2_inglês">Peso 2</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" id="peso3_inglês"
-                                    name="dificuldade_inglês" value="3">
+                                <input class="form-check-input" type="radio" id="peso3_inglês" name="dificuldade_inglês"
+                                    value="3">
                                 <label class="form-check-label" for="peso3_inglês">Peso 3</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" id="peso4_inglês"
-                                    name="dificuldade_inglês" value="4">
+                                <input class="form-check-input" type="radio" id="peso4_inglês" name="dificuldade_inglês"
+                                    value="4">
                                 <label class="form-check-label" for="peso4_inglês">Peso 4</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" id="peso5_inglês"
-                                    name="dificuldade_inglês" value="5">
+                                <input class="form-check-input" type="radio" id="peso5_inglês" name="dificuldade_inglês"
+                                    value="5">
                                 <label class="form-check-label" for="peso5_inglês">Peso 5</label>
                             </div>
                         </div>
@@ -249,8 +246,7 @@
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" id="física" class="btn btn-primary"
                             type="button" data-bs-toggle="collapse" data-bs-target="#collapsefísica"
-                            aria-expanded="false" aria-controls="collapsefísica" name="materias[]"
-                            value="física">
+                            aria-expanded="false" aria-controls="collapsefísica" name="materias[]" value="física">
                         <label class="form-check-label" for="física">Física</label>
                         <div class="mb-3 mt-3 collapse" id="collapsefísica">
                             <label class="form-label">Dificuldade na matéria:</label>
@@ -285,8 +281,7 @@
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" id="química" class="btn btn-primary"
                             type="button" data-bs-toggle="collapse" data-bs-target="#collapsequímica"
-                            aria-expanded="false" aria-controls="collapsequímica" name="materias[]"
-                            value="química">
+                            aria-expanded="false" aria-controls="collapsequímica" name="materias[]" value="química">
                         <label class="form-check-label" for="química">Química</label>
                         <div class="mb-3 mt-3 collapse" id="collapsequímica">
                             <label class="form-label">Dificuldade na matéria:</label>
@@ -393,8 +388,7 @@
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" id="biologia" class="btn btn-primary"
                             type="button" data-bs-toggle="collapse" data-bs-target="#collapseBiologia"
-                            aria-expanded="false" aria-controls="collapseBiologia" name="materias[]"
-                            value="biologia">
+                            aria-expanded="false" aria-controls="collapseBiologia" name="materias[]" value="biologia">
                         <label class="form-check-label" for="biologia">Biologia</label>
                         <div class="mb-3 mt-3 collapse" id="collapseBiologia">
                             <label class="form-label">Dificuldade na matéria:</label>
@@ -435,5 +429,27 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+    <script>
+        document.querySelector("form").addEventListener("submit", function (event) {
+            let checkboxes = document.querySelectorAll("input[name='materias[]']:checked");
+            let erro = false;
+
+            checkboxes.forEach(checkbox => {
+                let materia = checkbox.value;
+                let dificuldadeSelecionada = document.querySelector(`input[name='dificuldade_${materia}']:checked`);
+
+                if (!dificuldadeSelecionada) {
+                    erro = true;
+                }
+            });
+
+            if (erro) {
+                event.preventDefault(); // Impede o envio do formulário
+                alert("Por favor, selecione um nível de dificuldade para cada matéria escolhida.");
+            }
+        });
+
+    </script>
 </body>
+
 </html>
