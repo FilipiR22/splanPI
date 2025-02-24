@@ -13,7 +13,7 @@
                     <p class="email_user mb-0 opacity-75">{{ user.email }}</p>
                 </div>
             </div>
-            <a href="link_para_deletar_usuário">
+            <a href="{{url_for('usuario.deletar_user')}}" name="{{user.id}}">
                 <div class="button-delete bg-danger d-flex justify-content-center align-items-center p-4 rounded gap-3">
                     <img src="{{ url_for('static', filename='img/icon_delete.svg') }}" alt="">
                 </div>

@@ -15,6 +15,7 @@ from controllers.Materia_peso import peso_bp
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
 from models.Assunto import Assunto
 from models.Conteudo import Conteudo
+from models.Materia import Materia
 
 app = Flask(__name__)
 
@@ -67,7 +68,13 @@ def inicio():
 @login_required
 def carregar_cronograma():
    assuntos = mostrar_assuntos()
-   return render_template('teste.html', assuntos=assuntos)
+
+   materias = []
+   for ass in assuntos:
+      assunto = Assunto.query.filter_by(nome=ass).first()
+      materia = Materia.query.filter_by(id_materia=assunto.id_materia).first()
+      materias.append(materia.nome)
+   return render_template('cronograma.html', assuntos=assuntos, materias=materias)
 
    
 @app.route('/atualizarcronograma')

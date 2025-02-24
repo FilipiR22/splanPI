@@ -272,7 +272,7 @@ def inserir_dados_form():
    print(current_user.id, horas_estudo)
    db.session.add(form)
    db.session.commit()
-   #formulario inserid
+   #formulario inserido
    materias_selecionadas = request.form.getlist("materias[]")
    print("Matérias selecionadas:", materias_selecionadas)
    materias = ['matemática', 'português', 'física', 'química', 'biologia', 'geografia', 'história', 'filosofia', 'sociologia', 'artes', 'inglês', 'literatura']
@@ -290,8 +290,7 @@ def inserir_dados_form():
 
 #função que pega as materias e seus respectivos tempos de estudo
 def dados_cronograma(usuario):
-   print(usuario)
-   formulario = Formulario.query.filter_by(id_usuario=usuario.id).first()
+   formulario = Formulario.query.filter(Formulario.id_usuario==usuario.id).first()
    print(formulario.id_formulario)
    lista_materias_pesos = Materia_peso.query.filter_by(id_formulario=formulario.id_formulario).all()
    tempo_total = formulario.tempo_total
