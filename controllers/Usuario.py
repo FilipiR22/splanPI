@@ -79,7 +79,7 @@ def login_usuario():
             login_user(user)
             # print(f'Usuário logado: {user.id}')
             if current_user.tipo_user == 'adm':
-                return render_template('base_adm.html')
+                return render_template('onboarding_adm.html')
             return redirect(url_for('inicio'))
         else:
             flash('Senha incorreta!', 'warning')

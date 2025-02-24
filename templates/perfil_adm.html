@@ -1,0 +1,93 @@
+{% extends "base_adm.html" %}
+
+{% block conteudo %}
+<div class="perfil-box d-flex gap-5">
+    <div class="w-100">
+        <h1>Perfil</h1>
+        <div class="show-user d-flex gap-4 align-items-center mt-5">
+            <div class="account-actual d-flex p-3 rounded gap-3">
+                <img src="{{ url_for('static', filename='img/icon_user.svg') }}" alt="">
+                <div class="info">
+                    <p class="mb-0 fw-medium">{{user.nome}}</p>
+                    <p class="email_user mb-0 opacity-75">{{user.email}}</p>
+                    <p class="mb-0 fw-medium">{{user.telefone}}</p>
+                </div>
+            </div>
+
+            <!-- Button trigger modal -->
+            <button type="button" class="btn bg-danger p-3" data-bs-toggle="modal" data-bs-target="#staticBackdropDelete">
+                <img src="{{ url_for('static', filename='img/icon_delete.svg') }}" alt="">
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdropDelete" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Confirmação de exclusão</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Você deseja de fato deletar a sua conta do sistema?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary px-3 py-2 fs-6"
+                                data-bs-dismiss="modal">Fechar</button>
+                            <a href="{{url_for('usuario.deletar_user')}}">
+                                <div
+                                    class="button-delete d-flex justify-content-center align-items-center py-3 p-4 rounded gap-3 text-decoration-none text-white bg-danger">
+                                    <img src="{{ url_for('static', filename='img/icon_delete.svg') }}" alt="">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="w-100">
+        {% set mensagens = get_flashed_messages(with_categories=true) %}
+
+        {% if mensagens %}
+        {% for tipo, msg in mensagens %}
+        <div class="alert alert-{{tipo}}" role="alert">{{msg}}</div>
+        {% endfor %}
+        {% endif %}
+        <h2 class="mt-5">Alterações de dados</h2>
+        <form action="{{url_for('usuario.update_user')}}" method="post" class="form-sign-up mt-4">
+            <div class="content-singup d-flex flex-column gap-3">
+                <div class="div_input p-3 py-2 d-flex gap-3 align-items-center">
+                    <i class="fa-solid fa-user"></i>
+                    <input class="form-control bg-transparent border-0" name='nome' type="text" value="{{user.nome}}"
+                        required aria-label="default input">
+                </div>
+                <div class="div_input p-3 py-2 d-flex gap-3 align-items-center">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input class="form-control bg-transparent border-0" name='email' type="text" value="{{user.email}}"
+                        required aria-label="default input">
+                </div>
+                <div class="div_input p-3 py-2 d-flex gap-3 align-items-center">
+                    <i class="fa-solid fa-phone"></i>
+                    <input class="form-control bg-transparent border-0" name="telefone" type="tel" required
+                        value="{{user.telefone}}" aria-label="default input">
+                </div>
+                <div class="div_input p-3 d-flex gap-3 align-items-center">
+                    <i class="fa-solid fa-lock"></i>
+                    <input class="form-control bg-transparent border-0" name="novasenha" type="password" required
+                        placeholder="Nova Senha" aria-label="default input">
+                </div>
+                <div class="div_input p-3 d-flex gap-3 align-items-center">
+                    <i class="fa-solid fa-lock"></i>
+                    <input class="form-control bg-transparent border-0" name="confirmacaonovasenha" type="password"
+                        required placeholder="Confirmar Senha" aria-label="default input">
+                </div>
+                <button type="submit"
+                    class="p-3 rounded-5 fw-semibold btn_cadastro border-1 m-auto mt-3 border-none w-100">ALTERAR</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
