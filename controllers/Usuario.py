@@ -65,6 +65,8 @@ def criar_usuario():
 def login_usuario():
     if request.method == 'GET':
         if current_user.is_authenticated:
+            if current_user.tipo_user == 'adm':
+                return redirect(url_for('dashboard_adm'))
             return redirect(url_for('inicio'))
         return render_template('login.html')
     

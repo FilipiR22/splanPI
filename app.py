@@ -9,7 +9,7 @@ from controllers.Usuario import user_bp, pegar_usuarios
 from controllers.Materia import materia_bp
 from controllers.Assunto import assunto_bp
 from controllers.Conteudo import conteudo_bp
-from controllers.Formulario import formulario_bp, mostrar_assuntos, atualizar_cronogramas
+from controllers.Formulario import formulario_bp
 from controllers.Progresso import progresso_bp
 from controllers.Materia_peso import peso_bp
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
@@ -66,14 +66,17 @@ def inicio():
 @app.route('/cronograma')
 @login_required
 def carregar_cronograma():
-   assuntos = mostrar_assuntos()
-   return render_template('teste.html', assuntos=assuntos)
+   # assuntos = mostrar_assuntos()
+   # return render_template('teste.html', assuntos=assuntos)
+   return 'haha'
+
    
-@app.route('/atualizarcronograma')
-@login_required
-def resetar_cronograma_semanal():
-   atualizar_cronogramas()
-   return redirect(url_for('carregar_cronograma'))
+# @app.route('/atualizarcronograma')
+# @login_required
+# def resetar_cronograma_semanal():
+#    atualizar_cronogramas()
+#    return redirect(url_for('carregar_cronograma'))
+
 
 @app.route('/dashboardadministrador')
 @login_required
@@ -92,12 +95,6 @@ def gerenciar_users():
       return redirect(url_for('inicio'))
    usuarios = pegar_usuarios()
    return render_template('gerenciar_usuario.html', usuarios=usuarios)
-
-
-# @app.route('/debug_session')
-# def debug_session():
-#     from flask import session
-#     return f"Session _user_id: {session.get('_user_id')}"
 
 
 if __name__ == "__main__":

@@ -17,59 +17,41 @@ formulario_bp = Blueprint('formulario', __name__, template_folder='templates')
 def carregar_formulario():
    return render_template('formulario.html')
 
-#armazena os dados do formulario
+
+
+#armazena os dados do formulario no banco
 @formulario_bp.route('/receberformulario', methods=['POST'])
 @login_required
-def processar_formulario():
-
-#cadastrar formulario
+#pega os dados do formulario e insere na tabela materia peso e formulario
+def inserir_dados_form():
    horas_estudo = request.form['horas_estudo']
    form = Formulario(current_user.id, horas_estudo)
    print(current_user.id, horas_estudo)
    db.session.add(form)
    db.session.commit()
+   #formulario inserido
 
-   id_form = form.id_formulario
-
-#cadastrar pesos e materias
    materias_selecionadas = request.form.getlist("materias[]")
+   print("Matérias selecionadas:", materias_selecionadas)
 
-   lista_materias = ['matemática', 'português', 'física', 'química', 'biologia', 'geografia', 'história', 'literatura', 'artes', 'filosofia', 'sociologia', 'inglês']
-   
-   dificuldades = {}
-   soma_pesos = 0
-   
+   materias = ['matemática', 'português', 'física', 'química', 'biologia', 'geografia', 'história', 'filosofia', 'sociologia', 'artes', 'inglês', 'literatura']
 
-   for materia in lista_materias:
+   for materia in materias:
       if materia in materias_selecionadas:
-         dificuldade = request.form['dificuldade_'+materia]
-         soma_pesos += int(dificuldade)
-         dificuldades[materia] = dificuldade
-         pegar_materia = Materia.query.filter_by(nome=materia).first()
-         id_mat = pegar_materia.id_materia
-         print(dificuldade, id_form, id_mat)
-         instancia = Materia_peso(dificuldade, id_form, id_mat)
-         db.session.add(instancia)
+         peso = request.form['dificuldade_'+materia]
+         obj_materia = Materia.query.filter_by(nome=materia).first()
+         instancia_materia_peso = Materia_peso(peso, form.id_formulario, obj_materia.id_materia)
+         db.session.add(instancia_materia_peso)
          db.session.commit()
 
-   
-   unidade_tempo = int(horas_estudo) / soma_pesos
-
-   tempos_materias = {materia: float(dificuldade) * unidade_tempo for materia, dificuldade in dificuldades.items()}
-   
-   print(dificuldades)
-   print(unidade_tempo)
-   print(tempos_materias)
-   print(materias_selecionadas)
-   print(soma_pesos)
-   print(dificuldades.keys())
-   print(dificuldades.values())
-   
    criar_cronograma(current_user)
    return redirect(url_for('inicio'))
 
 
+
+
 #função que pega as materias e seus respectivos tempos de estudo
+@formulario_bp.route('/dados')
 def dados_cronograma(usuario):
    formulario = Formulario.query.filter_by(id_usuario=usuario.id).first()
    lista_materias_pesos = Materia_peso.query.filter_by(id_formulario=formulario.id_formulario).all()
@@ -94,18 +76,14 @@ def dados_cronograma(usuario):
 
    return tempos_materias
 
-
-# @formulario_bp.route('teste')
-# def teste_cronograma():
-#    lista_de_assuntos = criar_cronograma(current_user)
-#    return render_template('teste.html', assuntos=lista_de_assuntos)
    
 
 
 
 #cria/atualiza os progressos
+@formulario_bp.route('/crono')
 def criar_cronograma(usuario):
-   # usuario = current_user
+   usuario = current_user
    materias_pesos = dados_cronograma(usuario)
    ids_tempos = {}
 
@@ -172,7 +150,7 @@ def criar_cronograma(usuario):
             db.session.commit()
             print(1, ass.duracao, usuario.id, ass.id_assunto)
             lista_de_assuntos.append(ass.nome)
-            break
+            #break
             
          elif tempo < ass.duracao:
             print('assunto nao iniciado')
@@ -185,17 +163,17 @@ def criar_cronograma(usuario):
             break
    print(lista_de_assuntos) 
    print("Lista de Assuntos Criada no Cronograma:", lista_de_assuntos)
-   # return lista_de_assuntos
+   return lista_de_assuntos
 
 
-#atualizar progresso dos usuarios
-# @formulario_bp.route('atualizar')
-def atualizar_cronogramas():
-   usuarios = Usuario.query.all()
 
-   for usuario in usuarios:
-      criar_cronograma(usuario)
-   # return redirect(url_for('carregar_cronograma'))
+
+# def atualizar_cronogramas():
+#    usuarios = Usuario.query.all()
+
+#    for usuario in usuarios:
+#       criar_cronograma(usuario)
+
 
 
 
@@ -214,4 +192,4 @@ def mostrar_assuntos():
    
    print(assuntos)
    return assuntos
-   
+
