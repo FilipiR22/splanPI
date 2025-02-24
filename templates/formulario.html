@@ -20,7 +20,7 @@
         <div class="alert alert-{{tipo}}" role="alert">{{msg}}</div>
         {% endfor %}
         {% endif %}
-        <form action="{{ url_for('formulario.processar_formulario') }}" method="post" class="form-formulario_cronograma p-4 w-100">
+        <form action="{{ url_for('formulario.inserir_dados_form') }}" method="post" class="form-formulario_cronograma p-4 w-100">
             <h3 class="text-center mb-4">Insira os dados solicitados</h3>
             <div class="content-formulario_cronograma d-flex flex-column gap-4 fw-medium">
                 <div class="div_input py-3 p-4 d-flex gap-4 align-items-center">
@@ -30,109 +30,109 @@
                 <div class="mt-3">
                     <h5 class="mb-4">Quais matérias você vai estudar:</h5>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="portugues" class="btn btn-primary"
-                            type="button" data-bs-toggle="collapse" data-bs-target="#collapsePortugues"
-                            aria-expanded="false" aria-controls="collapsePortugues" name="materias[]"
-                            value="portugues">
-                        <label class="form-check-label" for="portugues">Português</label>
-                        <div class="mb-3 mt-3 collapse" id="collapsePortugues">
+                        <input class="form-check-input" type="checkbox" id="português" class="btn btn-primary"
+                            type="button" data-bs-toggle="collapse" data-bs-target="#collapseportuguês"
+                            aria-expanded="false" aria-controls="collapseportuguês" name="materias[]"
+                            value="português">
+                        <label class="form-check-label" for="português">Português</label>
+                        <div class="mb-3 mt-3 collapse" id="collapseportuguês">
                             <label class="form-label">Dificuldade na matéria:</label>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" id="peso1_portugues"
-                                    name="dificuldade_portugues" value="1">
-                                <label class="form-check-label" for="peso1_portugues">Peso 1</label>
+                                <input class="form-check-input" type="radio" id="peso1_português"
+                                    name="dificuldade_português" value="1">
+                                <label class="form-check-label" for="peso1_português">Peso 1</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" id="peso2_portugues"
-                                    name="dificuldade_portugues" value="2">
-                                <label class="form-check-label" for="peso2_portugues">Peso 2</label>
+                                <input class="form-check-input" type="radio" id="peso2_português"
+                                    name="dificuldade_português" value="2">
+                                <label class="form-check-label" for="peso2_português">Peso 2</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" id="peso3_portugues"
-                                    name="dificuldade_portugues" value="3">
-                                <label class="form-check-label" for="peso3_portugues">Peso 3</label>
+                                <input class="form-check-input" type="radio" id="peso3_português"
+                                    name="dificuldade_português" value="3">
+                                <label class="form-check-label" for="peso3_português">Peso 3</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" id="peso4_portugues"
-                                    name="dificuldade_portugues" value="4">
-                                <label class="form-check-label" for="peso4_portugues">Peso 4</label>
+                                <input class="form-check-input" type="radio" id="peso4_português"
+                                    name="dificuldade_português" value="4">
+                                <label class="form-check-label" for="peso4_português">Peso 4</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" id="peso5_portugues"
-                                    name="dificuldade_portugues" value="5">
-                                <label class="form-check-label" for="peso5_portugues">Peso 5</label>
+                                <input class="form-check-input" type="radio" id="peso5_português"
+                                    name="dificuldade_português" value="5">
+                                <label class="form-check-label" for="peso5_português">Peso 5</label>
                             </div>
                         </div>
                     </div>
 
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="matematica" class="btn btn-primary"
-                            type="button" data-bs-toggle="collapse" data-bs-target="#collapseMatematica"
-                            aria-expanded="false" aria-controls="collapseMatematica" name="materias[]"
-                            value="matematica">
-                        <label class="form-check-label" for="matematica">Matemática</label>
-                        <div class="mb-3 mt-3 collapse" id="collapseMatematica">
+                        <input class="form-check-input" type="checkbox" id="matemática" class="btn btn-primary"
+                            type="button" data-bs-toggle="collapse" data-bs-target="#collapsematemática"
+                            aria-expanded="false" aria-controls="collapsematemática" name="materias[]"
+                            value="matemática">
+                        <label class="form-check-label" for="matemática">Matemática</label>
+                        <div class="mb-3 mt-3 collapse" id="collapsematemática">
                             <label class="form-label">Dificuldade na matéria:</label>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" id="peso1_matematica"
-                                    name="dificuldade_matematica" value="1">
-                                <label class="form-check-label" for="peso1_matematica">Peso 1</label>
+                                <input class="form-check-input" type="radio" id="peso1_matemática"
+                                    name="dificuldade_matemática" value="1">
+                                <label class="form-check-label" for="peso1_matemática">Peso 1</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" id="peso2_matematica"
-                                    name="dificuldade_matematica" value="2">
-                                <label class="form-check-label" for="peso2_matematica">Peso 2</label>
+                                <input class="form-check-input" type="radio" id="peso2_matemática"
+                                    name="dificuldade_matemática" value="2">
+                                <label class="form-check-label" for="peso2_matemática">Peso 2</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" id="peso3_matematica"
-                                    name="dificuldade_matematica" value="3">
-                                <label class="form-check-label" for="peso3_matematica">Peso 3</label>
+                                <input class="form-check-input" type="radio" id="peso3_matemática"
+                                    name="dificuldade_matemática" value="3">
+                                <label class="form-check-label" for="peso3_matemática">Peso 3</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" id="peso4_matematica"
-                                    name="dificuldade_matematica" value="4">
-                                <label class="form-check-label" for="peso4_matematica">Peso 4</label>
+                                <input class="form-check-input" type="radio" id="peso4_matemática"
+                                    name="dificuldade_matemática" value="4">
+                                <label class="form-check-label" for="peso4_matemática">Peso 4</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" id="peso5_matematica"
-                                    name="dificuldade_matematica" value="5">
-                                <label class="form-check-label" for="peso5_matematica">Peso 5</label>
+                                <input class="form-check-input" type="radio" id="peso5_matemática"
+                                    name="dificuldade_matemática" value="5">
+                                <label class="form-check-label" for="peso5_matemática">Peso 5</label>
                             </div>
                         </div>
                     </div>
 
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="historia" class="btn btn-primary"
-                            type="button" data-bs-toggle="collapse" data-bs-target="#collapseHistoria"
-                            aria-expanded="false" aria-controls="collapseHistoria" name="materias[]"
-                            value="historia">
-                        <label class="form-check-label" for="historia">História</label>
-                        <div class="mb-3 mt-3 collapse" id="collapseHistoria">
+                        <input class="form-check-input" type="checkbox" id="história" class="btn btn-primary"
+                            type="button" data-bs-toggle="collapse" data-bs-target="#collapsehistória"
+                            aria-expanded="false" aria-controls="collapsehistória" name="materias[]"
+                            value="história">
+                        <label class="form-check-label" for="história">História</label>
+                        <div class="mb-3 mt-3 collapse" id="collapsehistória">
                             <label class="form-label">Dificuldade na matéria:</label>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" id="peso1_historia"
-                                    name="dificuldade_historia" value="1">
-                                <label class="form-check-label" for="peso1_historia">Peso 1</label>
+                                <input class="form-check-input" type="radio" id="peso1_história"
+                                    name="dificuldade_história" value="1">
+                                <label class="form-check-label" for="peso1_história">Peso 1</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" id="peso2_historia"
-                                    name="dificuldade_historia" value="2">
-                                <label class="form-check-label" for="peso2_historia">Peso 2</label>
+                                <input class="form-check-input" type="radio" id="peso2_história"
+                                    name="dificuldade_história" value="2">
+                                <label class="form-check-label" for="peso2_história">Peso 2</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" id="peso3_historia"
-                                    name="dificuldade_historia" value="3">
-                                <label class="form-check-label" for="peso3_historia">Peso 3</label>
+                                <input class="form-check-input" type="radio" id="peso3_história"
+                                    name="dificuldade_história" value="3">
+                                <label class="form-check-label" for="peso3_história">Peso 3</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" id="peso4_historia"
-                                    name="dificuldade_historia" value="4">
-                                <label class="form-check-label" for="peso4_historia">Peso 4</label>
+                                <input class="form-check-input" type="radio" id="peso4_história"
+                                    name="dificuldade_história" value="4">
+                                <label class="form-check-label" for="peso4_história">Peso 4</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" id="peso5_historia"
-                                    name="dificuldade_historia" value="5">
-                                <label class="form-check-label" for="peso5_historia">Peso 5</label>
+                                <input class="form-check-input" type="radio" id="peso5_história"
+                                    name="dificuldade_história" value="5">
+                                <label class="form-check-label" for="peso5_história">Peso 5</label>
                             </div>
                         </div>
                     </div>
@@ -211,109 +211,109 @@
 
 
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="ingles" class="btn btn-primary"
-                            type="button" data-bs-toggle="collapse" data-bs-target="#collapseIngles"
-                            aria-expanded="false" aria-controls="collapseIngles" name="materias[]"
-                            value="ingles">
-                        <label class="form-check-label" for="ingles">Inglês</label>
-                        <div class="mb-3 mt-3 collapse" id="collapseIngles">
+                        <input class="form-check-input" type="checkbox" id="inglês" class="btn btn-primary"
+                            type="button" data-bs-toggle="collapse" data-bs-target="#collapseinglês"
+                            aria-expanded="false" aria-controls="collapseinglês" name="materias[]"
+                            value="inglês">
+                        <label class="form-check-label" for="inglês">Inglês</label>
+                        <div class="mb-3 mt-3 collapse" id="collapseinglês">
                             <label class="form-label">Dificuldade na matéria:</label>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" id="peso1_ingles"
-                                    name="dificuldade_ingles" value="1">
-                                <label class="form-check-label" for="peso1_ingles">Peso 1</label>
+                                <input class="form-check-input" type="radio" id="peso1_inglês"
+                                    name="dificuldade_inglês" value="1">
+                                <label class="form-check-label" for="peso1_inglês">Peso 1</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" id="peso2_ingles"
-                                    name="dificuldade_ingles" value="2">
-                                <label class="form-check-label" for="peso2_ingles">Peso 2</label>
+                                <input class="form-check-input" type="radio" id="peso2_inglês"
+                                    name="dificuldade_inglês" value="2">
+                                <label class="form-check-label" for="peso2_inglês">Peso 2</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" id="peso3_ingles"
-                                    name="dificuldade_ingles" value="3">
-                                <label class="form-check-label" for="peso3_ingles">Peso 3</label>
+                                <input class="form-check-input" type="radio" id="peso3_inglês"
+                                    name="dificuldade_inglês" value="3">
+                                <label class="form-check-label" for="peso3_inglês">Peso 3</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" id="peso4_ingles"
-                                    name="dificuldade_ingles" value="4">
-                                <label class="form-check-label" for="peso4_ingles">Peso 4</label>
+                                <input class="form-check-input" type="radio" id="peso4_inglês"
+                                    name="dificuldade_inglês" value="4">
+                                <label class="form-check-label" for="peso4_inglês">Peso 4</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" id="peso5_ingles"
-                                    name="dificuldade_ingles" value="5">
-                                <label class="form-check-label" for="peso5_ingles">Peso 5</label>
+                                <input class="form-check-input" type="radio" id="peso5_inglês"
+                                    name="dificuldade_inglês" value="5">
+                                <label class="form-check-label" for="peso5_inglês">Peso 5</label>
                             </div>
                         </div>
                     </div>
 
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="fisica" class="btn btn-primary"
-                            type="button" data-bs-toggle="collapse" data-bs-target="#collapseFisica"
-                            aria-expanded="false" aria-controls="collapseFisica" name="materias[]"
-                            value="fisica">
-                        <label class="form-check-label" for="fisica">Física</label>
-                        <div class="mb-3 mt-3 collapse" id="collapseFisica">
+                        <input class="form-check-input" type="checkbox" id="física" class="btn btn-primary"
+                            type="button" data-bs-toggle="collapse" data-bs-target="#collapsefísica"
+                            aria-expanded="false" aria-controls="collapsefísica" name="materias[]"
+                            value="física">
+                        <label class="form-check-label" for="física">Física</label>
+                        <div class="mb-3 mt-3 collapse" id="collapsefísica">
                             <label class="form-label">Dificuldade na matéria:</label>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" id="peso1_fisica" name="dificuldade_fisica"
+                                <input class="form-check-input" type="radio" id="peso1_física" name="dificuldade_física"
                                     value="1">
-                                <label class="form-check-label" for="peso1_fisica">Peso 1</label>
+                                <label class="form-check-label" for="peso1_física">Peso 1</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" id="peso2_fisica" name="dificuldade_fisica"
+                                <input class="form-check-input" type="radio" id="peso2_física" name="dificuldade_física"
                                     value="2">
-                                <label class="form-check-label" for="peso2_fisica">Peso 2</label>
+                                <label class="form-check-label" for="peso2_física">Peso 2</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" id="peso3_fisica" name="dificuldade_fisica"
+                                <input class="form-check-input" type="radio" id="peso3_física" name="dificuldade_física"
                                     value="3">
-                                <label class="form-check-label" for="peso3_fisica">Peso 3</label>
+                                <label class="form-check-label" for="peso3_física">Peso 3</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" id="peso4_fisica" name="dificuldade_fisica"
+                                <input class="form-check-input" type="radio" id="peso4_física" name="dificuldade_física"
                                     value="4">
-                                <label class="form-check-label" for="peso4_fisica">Peso 4</label>
+                                <label class="form-check-label" for="peso4_física">Peso 4</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" id="peso5_fisica" name="dificuldade_fisica"
+                                <input class="form-check-input" type="radio" id="peso5_física" name="dificuldade_física"
                                     value="5">
-                                <label class="form-check-label" for="peso5_fisica">Peso 5</label>
+                                <label class="form-check-label" for="peso5_física">Peso 5</label>
                             </div>
                         </div>
                     </div>
 
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="quimica" class="btn btn-primary"
-                            type="button" data-bs-toggle="collapse" data-bs-target="#collapseQuimica"
-                            aria-expanded="false" aria-controls="collapseQuimica" name="materias[]"
-                            value="quimica">
-                        <label class="form-check-label" for="quimica">Química</label>
-                        <div class="mb-3 mt-3 collapse" id="collapseQuimica">
+                        <input class="form-check-input" type="checkbox" id="química" class="btn btn-primary"
+                            type="button" data-bs-toggle="collapse" data-bs-target="#collapsequímica"
+                            aria-expanded="false" aria-controls="collapsequímica" name="materias[]"
+                            value="química">
+                        <label class="form-check-label" for="química">Química</label>
+                        <div class="mb-3 mt-3 collapse" id="collapsequímica">
                             <label class="form-label">Dificuldade na matéria:</label>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" id="peso1_quimica"
-                                    name="dificuldade_quimica" value="1">
-                                <label class="form-check-label" for="peso1_quimica">Peso 1</label>
+                                <input class="form-check-input" type="radio" id="peso1_química"
+                                    name="dificuldade_química" value="1">
+                                <label class="form-check-label" for="peso1_química">Peso 1</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" id="peso2_quimica"
-                                    name="dificuldade_quimica" value="2">
-                                <label class="form-check-label" for="peso2_quimica">Peso 2</label>
+                                <input class="form-check-input" type="radio" id="peso2_química"
+                                    name="dificuldade_química" value="2">
+                                <label class="form-check-label" for="peso2_química">Peso 2</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" id="peso3_quimica"
-                                    name="dificuldade_quimica" value="3">
-                                <label class="form-check-label" for="peso3_quimica">Peso 3</label>
+                                <input class="form-check-input" type="radio" id="peso3_química"
+                                    name="dificuldade_química" value="3">
+                                <label class="form-check-label" for="peso3_química">Peso 3</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" id="peso4_quimica"
-                                    name="dificuldade_quimica" value="4">
-                                <label class="form-check-label" for="peso4_quimica">Peso 4</label>
+                                <input class="form-check-input" type="radio" id="peso4_química"
+                                    name="dificuldade_química" value="4">
+                                <label class="form-check-label" for="peso4_química">Peso 4</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" id="peso5_quimica"
-                                    name="dificuldade_quimica" value="5">
-                                <label class="form-check-label" for="peso5_quimica">Peso 5</label>
+                                <input class="form-check-input" type="radio" id="peso5_química"
+                                    name="dificuldade_química" value="5">
+                                <label class="form-check-label" for="peso5_química">Peso 5</label>
                             </div>
                         </div>
                     </div>

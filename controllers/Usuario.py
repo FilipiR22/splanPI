@@ -65,6 +65,8 @@ def criar_usuario():
 def login_usuario():
     if request.method == 'GET':
         if current_user.is_authenticated:
+            if current_user.tipo_user == 'adm':
+                return redirect(url_for('dashboard_adm'))
             return redirect(url_for('inicio'))
         return render_template('login.html')
     
@@ -176,5 +178,10 @@ def logoff():
 @user_bp.route('/perfil')
 @login_required
 def carregar_perfil():
-    print(current_user)
+    if current_user.tipo_user == 'adm':
+        return render_template('perfil_adm.html', user=current_user)
     return render_template('perfil_user.html', user=current_user)
+
+def pegar_usuarios():
+    usuarios = Usuario.query.filter_by(tipo_user='comum').all()
+    return usuarios

@@ -5,7 +5,7 @@ import json
 import os
 from flask_migrate import Migrate
 from utils import db, login_manager
-from controllers.Usuario import user_bp
+from controllers.Usuario import user_bp, pegar_usuarios
 from controllers.Materia import materia_bp
 from controllers.Assunto import assunto_bp
 from controllers.Conteudo import conteudo_bp
@@ -68,12 +68,14 @@ def inicio():
 def carregar_cronograma():
    assuntos = mostrar_assuntos()
    return render_template('teste.html', assuntos=assuntos)
+
    
 @app.route('/atualizarcronograma')
 @login_required
 def resetar_cronograma_semanal():
    atualizar_cronogramas()
    return redirect(url_for('carregar_cronograma'))
+
 
 @app.route('/dashboardadministrador')
 @login_required
@@ -84,11 +86,14 @@ def dashboard_adm():
    return render_template('base_adm.html')
 
 
-
-# @app.route('/debug_session')
-# def debug_session():
-#     from flask import session
-#     return f"Session _user_id: {session.get('_user_id')}"
+@app.route('/gerenciarusuarios')
+@login_required
+def gerenciar_users():
+   if current_user.tipo_user != 'adm':
+      flash('Acesso exclusivo para administradores!', 'danger')
+      return redirect(url_for('inicio'))
+   usuarios = pegar_usuarios()
+   return render_template('gerenciar_usuario.html', usuarios=usuarios)
 
 
 if __name__ == "__main__":

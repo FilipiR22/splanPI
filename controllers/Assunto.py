@@ -3,4 +3,3 @@ from models.Assunto import Assunto
 from utils import db
 
 assunto_bp = Blueprint('assunto', __name__, template_folder='templates')
-
