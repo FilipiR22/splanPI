@@ -5,7 +5,7 @@ import json
 import os
 from flask_migrate import Migrate
 from utils import db, login_manager
-from controllers.Usuario import user_bp, pegar_usuarios
+from controllers.Usuario import user_bp
 from controllers.Materia import materia_bp
 from controllers.Assunto import assunto_bp
 from controllers.Conteudo import conteudo_bp
@@ -16,6 +16,7 @@ from flask_login import LoginManager, UserMixin, login_user, logout_user, login_
 from models.Assunto import Assunto
 from models.Conteudo import Conteudo
 from models.Materia import Materia
+from models.Usuario import Usuario
 
 app = Flask(__name__)
 
@@ -99,7 +100,7 @@ def gerenciar_users():
    if current_user.tipo_user != 'adm':
       flash('Acesso exclusivo para administradores!', 'danger')
       return redirect(url_for('inicio'))
-   usuarios = pegar_usuarios()
+   usuarios = Usuario.query.filter_by(tipo_user='comum').all()
    return render_template('gerenciar_usuario.html', usuarios=usuarios)
 
 

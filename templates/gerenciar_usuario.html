@@ -11,9 +11,10 @@
                 <div class="info">
                     <p class="mb-0 fw-medium">{{ user.nome }}</p>
                     <p class="email_user mb-0 opacity-75">{{ user.email }}</p>
+                    <p class="email_user mb-0 opacity-75">{{ user.telefone }}</p>
                 </div>
             </div>
-            <a href="{{url_for('usuario.deletar_user')}}" name="{{user.id}}">
+            <a href="{{url_for('usuario.adm_deletar_user', id=user.id)}}" name="{{user.id}}">
                 <div class="button-delete bg-danger d-flex justify-content-center align-items-center p-4 rounded gap-3">
                     <img src="{{ url_for('static', filename='img/icon_delete.svg') }}" alt="">
                 </div>
@@ -22,13 +23,15 @@
         
 
         <!-- Modal -->
-        <div class="modal fade" id="staticBackdropDelete" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        <div class="modal fade" id="staticBackdropDelete{{user.id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
             aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h1 class="modal-title fs-5" id="staticBackdropLabel">Confirmação de exclusão</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn bg-danger p-3" data-bs-toggle="modal" data-bs-target="#staticBackdropDelete{{ user.id }}">
+                            <img src="{{ url_for('static', filename='img/icon_delete.svg') }}" alt="">
+                        </button>
                     </div>
                     <div class="modal-body">
                         Você deseja de fato deletar a sua conta do sistema?
@@ -36,7 +39,7 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary px-3 py-2 fs-6"
                             data-bs-dismiss="modal">Fechar</button>
-                        <a href="{{url_for('usuario.deletar_user')}}">
+                        <a href="{{url_for('usuario.adm_deletar_user', id=user.id)}}">
                             <div
                                 class="button-delete d-flex justify-content-center align-items-center py-3 p-4 rounded gap-3 text-decoration-none text-white bg-danger">
                                 <img src="{{ url_for('static', filename='img/icon_delete.svg') }}" alt="">

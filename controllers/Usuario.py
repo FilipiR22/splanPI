@@ -161,8 +161,38 @@ def deletar_user():
     db.session.delete(user)
     db.session.commit()
     session.pop('user', None)
-
+    
     return redirect(url_for('index'))
+
+
+@user_bp.route('/admdeletaruser/<int:id>')
+@login_required
+def adm_deletar_user(id):
+    if not current_user.is_authenticated:
+        return redirect(url_for("login")) 
+    
+    #deletar formulario e materia_peso
+    form = Formulario.query.filter_by(id_usuario=id).first()
+    lista_materia_peso = Materia_peso.query.filter_by(id_formulario=form.id_formulario).all()
+    for obj in lista_materia_peso:
+        db.session.delete(obj)
+        db.session.commit()
+
+    db.session.delete(form)
+    db.session.commit()
+
+    lista_progressos = Progresso.query.filter_by(id_usuario=id)
+    for obj in lista_progressos:
+        db.session.delete(obj)
+        db.session.commit()
+
+    user = Usuario.query.get(id)
+    db.session.delete(user)
+    db.session.commit()
+    session.pop('user', None)
+    
+    return redirect(url_for('gerenciar_users'))
+
 
 
 @user_bp.route('/logoff')
@@ -182,6 +212,3 @@ def carregar_perfil():
         return render_template('perfil_adm.html', user=current_user)
     return render_template('perfil_user.html', user=current_user)
 
-def pegar_usuarios():
-    usuarios = Usuario.query.filter_by(tipo_user='comum').all()
-    return usuarios
