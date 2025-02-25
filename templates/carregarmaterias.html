@@ -8,9 +8,11 @@
             <div class="box_assuntos row mb-5">
                 {% for assunto in assuntos[i:i+3] %}
                     <div class="box_conteudos_assuntos col-4">
-                        <div class="name_assunto w-100 p-4">
-                            <h5 class="text-center text-light text-capitalize">{{ assunto.nome }}</h5>
-                        </div>
+                        <a href="{{ url_for('rota_dos_conteudos') }}" class="text-decoration-none">
+                            <div class="name_assunto w-100 p-4">
+                                <h5 class="text-center text-light text-capitalize">{{ assunto.nome }}</h5>
+                            </div>
+                        </a>
                     </div>
                 {% endfor %}
             </div>

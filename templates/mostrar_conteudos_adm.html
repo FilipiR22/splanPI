@@ -1,0 +1,15 @@
+{% extends "base_adm.html" %}
+{% block conteudo %}
+    <div>
+        <h2>Conteúdos do assunto <span class="text-capitalize">{{ assunto.nome }}</span></h2>
+    </div>
+    <div class="box_conteudos flex flex-column gap-5 mt-5">
+        {% for conteudo in conteudos %}
+            <div class="box_conteudo p-4 border rounded bg-light">
+                <h5 class="text-capitalize">{{ conteudo.titulo }}</h5>
+            </div>
+        {% else %}
+            <p class="text-muted">Nenhum conteúdo disponível para este assunto.</p>
+        {% endfor %}
+    </div>
+{% endblock %}
