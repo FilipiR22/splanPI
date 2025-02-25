@@ -5,7 +5,7 @@
     <h1>Gerenciamento de alunos</h1>
     <div class="box-user-aluno d-flex flex-column gap-3 mt-5 m-auto w-100">
         {% for user in usuarios %}
-        <div class="show-user d-flex gap-4 align-items-center w-100">
+        <div class="show-user d-flex gap-4 align-items-center w-100" class="box_conteudos scroll d-flex flex-column gap-3 mt-5" style="max-height: 600px; overflow-y: auto;">
             <div class="user-aluno d-flex p-3 rounded gap-3 w-100">
                 <img src="{{ url_for('static', filename='img/icon_user.svg') }}" alt="">
                 <div class="info">
