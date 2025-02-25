@@ -407,7 +407,6 @@ def atualizar_cronogramas():
    for user in users:
       lista_assuntos.append(criar_cronograma(user))
 
-   
 def mostrar_assuntos():
    assuntos = []
    print(current_user)
