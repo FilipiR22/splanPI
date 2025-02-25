@@ -17,6 +17,7 @@ from models.Assunto import Assunto
 from models.Conteudo import Conteudo
 from models.Materia import Materia
 from models.Usuario import Usuario
+from models.Progresso import Progresso
 
 app = Flask(__name__)
 
@@ -102,6 +103,15 @@ def gerenciar_users():
       return redirect(url_for('inicio'))
    usuarios = Usuario.query.filter_by(tipo_user='comum').all()
    return render_template('gerenciar_usuario.html', usuarios=usuarios)
+
+@app.route('/revisao')
+def lista_revisao():
+   lista_progressos = Progresso.query.filter_by(id_usuario=current_user.id).all()
+   assuntos = []
+   for pgs in lista_progressos:
+      ass = Assunto.query.filter_by(id_assunto=pgs.id_assunto).first()
+      assuntos.append(ass.nome)
+   return render_template('revisao.html', assuntos=assuntos)
 
 
 if __name__ == "__main__":

@@ -291,7 +291,6 @@ def inserir_dados_form():
 #função que pega as materias e seus respectivos tempos de estudo
 def dados_cronograma(usuario):
    formulario = Formulario.query.filter(Formulario.id_usuario==usuario.id).first()
-   print(formulario.id_formulario)
    lista_materias_pesos = Materia_peso.query.filter_by(id_formulario=formulario.id_formulario).all()
    tempo_total = formulario.tempo_total
    
@@ -402,7 +401,7 @@ def criar_cronograma(usuario):
 
 
 def atualizar_cronogramas():
-   users = Usuario.query.all()
+   users = Usuario.query.filter_by(tipo_user='comum').all()
    lista_assuntos = []
    print(users)
    for user in users:

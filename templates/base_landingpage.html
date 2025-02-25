@@ -66,12 +66,14 @@
                         Gráfico
                     </span>
                 </div> -->
-                <div class="funcionalidade d-flex align-items-center gap-3">
-                    <img src="{{ url_for('static', filename='img/revisao-icon.svg') }}" alt="">
-                    <span class="name_funcionalidade">
-                        Revisão
-                    </span>
-                </div>
+                <a href="{{url_for('lista_revisao')}}" class="text-decoration-none text-black">
+                    <div class="funcionalidade d-flex align-items-center gap-3">
+                        <img src="{{ url_for('static', filename='img/revisao-icon.svg') }}" alt="">
+                        <span class="name_funcionalidade">
+                            Revisão
+                        </span>
+                    </div>
+                </a>
                 <!-- <div class="funcionalidade d-flex align-items-center gap-3">
                     <img src="{{ url_for('static', filename='img/icon-search.svg') }}" alt="">
                     <span class="name_funcionalidade">
