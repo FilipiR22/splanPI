@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Splan</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/Header-splan.svg') }}" type="image/svg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css')}}">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="d-flex deskboard_landingpage bg-verde-pi">
+        <aside class="sidebar d-flex bg-teal d-flex gap-3 align-items-center bg-branco-pi">
+            <div class="content-sidebar d-flex flex-column gap-4 align-self-start h-100">
+                <a href="{{url_for('usuario.carregar_perfil')}}" class="text-decoration-none">
+                    <div class="user-info border-bottom pb-4 d-flex align-items-center gap-3 border-dark-subtle">
+                        <img src="{{ url_for('static', filename='img/user.svg') }}" alt="">
+                        <span class="text-decoration-none text-dark">
+                            {{current_user.nome}}
+                        </span>
+                    </div>
+                </a>
+                <a href="{{url_for('carregar_cronograma')}}" class="text-decoration-none">
+                    <div class="funcionalidade d-flex align-items-center gap-3">
+                        <img src="{{ url_for('static', filename='img/icon_clock_.svg') }}" alt="">
+                        <span class="name_funcionalidade text-dark">
+                            Cronograma
+                        </span>
+                    </div>
+                </a>
+                <div class="funcionalidade d-flex flex-column gap-4">
+                    <div class="d-flex align-items-center gap-3">
+                        <img src="{{ url_for('static', filename='img/icon-materias.svg') }}" alt="">
+                        <span class="name_funcionalidade">
+                            <a href="#materiasSubmenu" class="text-black mb-3 text-decoration-none"
+                                data-bs-toggle="collapse" aria-expanded="false">Matérias</a>
+                        </span>
+                    </div>
+                    <ul class="collapse lista__materias" id="materiasSubmenu">
+                        <li><a class="text-black" href="{{url_for('materia.listar_assuntos', materia='matemática')}}" >Matemática</a></li>
+                        <li><a class="text-black" href="{{url_for('materia.listar_assuntos', materia='física')}}" >Física</a></li>
+                        <li><a class="text-black" href="{{url_for('materia.listar_assuntos', materia='química')}}" >Química</a></li>
+                        <li><a class="text-black" href="{{url_for('materia.listar_assuntos', materia='português')}}" >Português</a></li>
+                        <li><a class="text-black" href="{{url_for('materia.listar_assuntos', materia='biologia')}}" >Biologia</a></li>
+                        <li><a class="text-black" href="{{url_for('materia.listar_assuntos', materia='história')}}" >História</a></li>
+                        <li><a class="text-black" href="{{url_for('materia.listar_assuntos', materia='geografia')}}" >Geografia</a></li>
+                        <li><a class="text-black" href="{{url_for('materia.listar_assuntos', materia='filosofia')}}" >Filosofia</a></li>
+                        <li><a class="text-black" href="{{url_for('materia.listar_assuntos', materia='sociologia')}}" >Sociologia</a></li>
+                        <li><a class="text-black" href="{{url_for('materia.listar_assuntos', materia='inglês')}}" >Inglês</a></li>
+                        <li><a class="text-black" href="{{url_for('materia.listar_assuntos', materia='literatura')}}" >Literatura</a></li>
+                        <li><a class="text-black" href="{{url_for('materia.listar_assuntos', materia='artes')}}" >Artes</a></li>
+                    </ul>
+                </div>
+                <!-- <div class="funcionalidade d-flex align-items-center gap-3">
+                    <img src="{{ url_for('static', filename='img/grafico-icon.svg') }}" alt="">
+                    <span class="name_funcionalidade">
+                        Gráfico
+                    </span>
+                </div> -->
+                <a href="{{url_for('lista_revisao')}}" class="text-decoration-none text-black">
+                    <div class="funcionalidade d-flex align-items-center gap-3">
+                        <img src="{{ url_for('static', filename='img/revisao-icon.svg') }}" alt="">
+                        <span class="name_funcionalidade">
+                            Revisão
+                        </span>
+                    </div>
+                </a>
+                <!-- <div class="funcionalidade d-flex align-items-center gap-3">
+                    <img src="{{ url_for('static', filename='img/icon-search.svg') }}" alt="">
+                    <span class="name_funcionalidade">
+                        Pesquisa
+                    </span>
+                </div> -->
+                <a href="{{url_for('usuario.logoff')}}" class="text-danger mt-auto align-items-end mt-auto d-inline-block text-decoration-none"><i class="fa-solid fa-arrow-right-from-bracket"></i> <span>Sair</span></a>
+            </div>
+            <div class="icon-chevron">
+                <i class="fa-solid fa-chevron-right"></i>
+            </div>
+        </aside>
+        <main class="background_deskboard content flex-grow-1 p-5 bg-branco-pi m-4 rounded">
+            {% block conteudo %}
+            {% endblock %}
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+<script>
+    setTimeout(function() {
+      document.querySelectorAll('.alert').forEach(function(alert) {
+        alert.style.transition = "opacity 0.5s";
+        alert.style.opacity = "0";
+        setTimeout(() => alert.remove(), 500);
+      });
+    }, 3000);
+  </script>
+</html>

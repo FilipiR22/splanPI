@@ -1,0 +1,17 @@
+{% extends "base_adm.html" %}
+
+{% block conteudo %}
+    <div class="container_onboarding flex-grow-1 d-flex align-items-center gap-5 h-100 justify-content-center">
+        <section class="content_onboarding w-100 d-flex flex-column gap-2 me-5">
+            <h1 class="fst-italic">Bem-vindo, Administrador, à plataforma SPLAN!</h1>
+            <h4></h4>
+            <a href="{{url_for('gerenciar_users')}}" class="text-decoration-none">
+                <button type="submit"
+                        class="p-3 rounded-5 fw-semibold btn_cadastro border-1 m-auto border-none outline-0 w-100">GRERENCIAR USUÁRIOS</button>
+            </a>
+        </section>
+        <picture class="ms-5"> 
+            <img src="{{ url_for('static', filename='img/large_logo_initial.svg') }}" alt="Logo ilustrativa do SPLAN"/>
+        </picture>
+    </div>
+{% endblock %}

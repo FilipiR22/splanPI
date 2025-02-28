@@ -1,0 +1,6 @@
+FLASK_APP = 'app:app'
+SECRET_KEY = 'sua palavra secreta'
+DB_USERNAME = 'danilo'
+DB_PASSWORD = 'AbC#d123'
+DB_HOST = 'localhost'
+DB_DATABASE = 'banco_splan'

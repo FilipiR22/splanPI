@@ -1,0 +1,18 @@
+{% extends "base_landingpage.html" %} 
+
+{% block conteudo %}
+    <div>
+        <h2>Cronograma</h2>
+    </div>
+    <div>
+        <div class="box-materias d-flex gap-3 justify-content-center mt-4 p-5 rounded">
+            {% for ass in assuntos %}
+            <div class="box-assuntos d-flex flex-column">
+                <div class="assuntos d-flex flex-column gap-3 rounded pt-3 bg-branco-pi shadow">
+                    <div class="item-assunto w-100 text-center pb-3 mx-2 w-auto fw-bold text-capitalize">{{ ass }}</div>
+                </div> 
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

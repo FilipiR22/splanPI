@@ -1,0 +1,17 @@
+{% extends "base_landingpage.html" %}
+
+{% block conteudo %}
+    <div class="container_onboarding flex-grow-1 d-flex align-items-center gap-5 h-100 justify-content-center">
+        <section class="content_onboarding w-100 d-flex flex-column gap-2 me-5">
+            <h1 class="fst-italic">Seja bem-vindo à plataforma SPLAN!</h1>
+            <h4>Uma plataforma de estudos criada para transformar sua forma de aprender e levar você a um novo nível.</h4>
+            <a href="{{url_for('carregar_cronograma')}}" class="text-decoration-none">
+                <button type="submit"
+                        class="p-3 rounded-5 fw-semibold btn_cadastro border-1 m-auto border-none outline-0 w-100">Cronograma</button>
+            </a>
+        </section>
+        <picture class="ms-5"> 
+            <img src="{{ url_for('static', filename='img/large_logo_initial.svg') }}" alt="Logo ilustrativa do SPLAN"/>
+        </picture>
+    </div>
+{% endblock %}
