@@ -106,7 +106,7 @@ def gerenciar_users():
 
 @app.route('/revisao')
 def lista_revisao():
-   lista_progressos = Progresso.query.filter_by(id_usuario=current_user.id).all()
+   lista_progressos = Progresso.query.filter(Progresso.id_usuario==current_user.id, Progresso.concluido==1).all()
    assuntos = []
    for pgs in lista_progressos:
       ass = Assunto.query.filter_by(id_assunto=pgs.id_assunto).first()

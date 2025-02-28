@@ -384,7 +384,6 @@ def criar_cronograma(usuario):
             db.session.commit()
             print(1, ass.duracao, usuario.id, ass.id_assunto)
             lista_de_assuntos.append(ass.nome)
-            break
             
          elif tempo < ass.duracao:
             print('assunto nao iniciado')
